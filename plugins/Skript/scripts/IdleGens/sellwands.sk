@@ -1,0 +1,52 @@
+
+
+function sellWandLore(item: item) :: item:
+	set {_nbt} to nbt compound of {_item}
+
+	set {_uses} to int tag "tag;SellWandUses" of {_nbt} 
+	set {_multi} to double tag "tag;SellWandMP" of {_nbt}
+
+	set {_use} to "%{_uses}%"
+
+	if {_uses} is 0:
+		set {_use} to "Infinite"
+
+	add "&f" to {_lore::*}
+	add "%{clr::gray}%&lINFO%{clr::gray}%:" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Mutli: %{clr::main}%%{_multi}%x" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Uses: %{clr::main}%%{_use}%" to {_lore::*}
+	add "&f" to {_lore::*}
+	add "%{clr::main}%&LSPECIAL" to {_lore::*}
+
+	set lore of {_item} to {_lore::*}
+
+	return {_item}
+
+function getSellWand(multi: number, uses: number) :: item:
+	set {_item} to shiny blaze rod named "%{clr::mainlight}%[ %{clr::main}%&LSELL WAND%{clr::mainlight}% ]" 
+	set {_nbt} to nbt compound of {_item}
+	set double tag "tag;SellWandMP" of {_nbt} to {_multi}
+	set int tag "tag;SellWandUses" of {_nbt} to {_uses}
+	set int tag "tag;keepNBT" of {_nbt} to 1
+	set {_item} to sellWandLore(item from nbt {_nbt})
+	return {_item}
+
+on right click with priority high:
+	event-block is hopper or chest
+	player is not sneaking
+	if tag "tag;SellWandMP" of nbt compound of player's tool is set:
+		set {_uses} to thisNumber(int tag "tag;SellWandUses" of nbt compound of player's tool)
+		if ({_uses} - 1) >= 1:
+			cancel event			
+			if economy_sell(player, inventory of event-block):
+				set {_nbt} to nbt compound of player's tool
+				set int tag "tag;SellWandUses" of {_nbt} to {_uses} - 1
+				set player's tool to sellWandLore(item from nbt {_nbt})
+		else if ({_uses} - 1) >= 0:
+			cancel event
+			if economy_sell(player, inventory of event-block):
+				set player's tool to air
+				play sound "item.shield.break"
+		else if ({_uses}) = 0:
+			cancel event
+			economy_sell(player, inventory of event-block)			

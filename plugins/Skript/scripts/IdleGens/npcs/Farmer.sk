@@ -1,0 +1,65 @@
+
+on right click:
+	entity is a citizen
+	name of entity is "farmer"
+	farmerGUI(player)
+
+function farmerGUI(p: player):
+	create a gui with virtual chest inventory with size 6 named "Farmer":
+
+		loop ( 6 * 9 ) times:
+			format gui slot ( loop-number - 1 ) with gray stained glass pane named "&f"
+
+
+
+		tradeFormat(gui, 9, (64 of {farming::items::wheat::crop}),{farming::items::enchanted::wheat})
+		tradeFormat(gui, 10, (64 of {farming::items::potato::crop}),{farming::items::enchanted::potato})
+		tradeFormat(gui, 11, (64 of {farming::items::carrot::crop}),{farming::items::enchanted::carrot})
+		tradeFormat(gui, 12, (64 of {farming::items::beetroot::crop}),{farming::items::enchanted::beetroot})
+
+
+		tradeFormat(gui, 14, (32 of {farming::items::wheat::crop}), {pets::items::pet_food})
+		tradeFormat(gui, 15, (16 of {farming::items::carrot::crop}), {pets::items::crazy_pet_food})
+		tradeFormat(gui, 16, (8 of {farming::items::potato::crop}), {pets::items::insane_pet_food})
+		tradeFormat(gui, 17, (32 of {farming::items::beetroot::crop}), {pets::items::god_pet_food})
+	
+		tradeFormat(gui, 19, (1 of {farming::items::enchanted::wheat}), {farming::items::hoe::wheat})
+		tradeFormat(gui, 20, (1 of {farming::items::enchanted::potato}), {farming::items::hoe::potato})
+		tradeFormat(gui, 21, (1 of {farming::items::enchanted::carrot}), {farming::items::hoe::carrot})
+		tradeFormat(gui, 22, (1 of {farming::items::enchanted::beetroot}), {farming::items::hoe::beetroot})
+
+		tradeFormat(gui, 37, (6 of {farming::items::enchanted::wheat}, 6 of {farming::items::enchanted::potato}), getPet("cow", 2))
+		tradeFormat(gui, 38, (16 of {farming::items::enchanted::wheat}, 16 of {farming::items::enchanted::potato}), getPet("cow", 3))
+		tradeFormat(gui, 39, (32 of {farming::items::enchanted::wheat}, 32 of {farming::items::enchanted::potato}), getPet("cow", 4))
+		tradeFormat(gui, 40, (64 of {farming::items::enchanted::wheat}, 64 of {farming::items::enchanted::potato}), getPet("cow", 5))
+
+		tradeFormat(gui, 41, (5 of {farming::items::enchanted::potato}, 5 of {farming::items::enchanted::carrot}), getPet("spider", 3))
+		tradeFormat(gui, 42, (25 of {farming::items::enchanted::potato}, 25 of {farming::items::enchanted::carrot}), getPet("spider", 4))
+		tradeFormat(gui, 43, (64 of {farming::items::enchanted::potato}, 64 of {farming::items::enchanted::carrot}), getPet("spider", 5))
+
+		format gui slot 25 with air
+
+	open the last gui to {_p}
+	
+
+
+function tradeFormat(gui: gui inventory, slot: number, i1: items, i2: item):
+	set {_lore::*} to lore of {_i2}
+
+	delete {_lore::%size of {_lore::*}%}
+
+	if length of {_lore::%size of {_lore::*}%} is less than 3:
+		delete {_lore::%size of {_lore::*}%}
+
+	add "&f" to {_lore::*}
+	add "%{clr::main}%&LCLICK %{clr::main}%Trade"  to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Trade these items." to {_lore::*}
+	add "&f" to {_lore::*}
+	add "%{clr::main}%&LPRICE%{clr::main}%:" to {_lore::*}
+	loop {_i1::*}:
+		add "%{clr::gray}% • %crates_getItemName(loop-value)%" to {_lore::*}
+	add "&f" to {_lore::*}
+
+	edit {_gui}:
+		format gui slot {_slot} with {_i2} named crates_getItemName({_i2}) with lore {_lore::*}:
+			API_multiItemPurchase(player, {_i1::*}, {_i2})

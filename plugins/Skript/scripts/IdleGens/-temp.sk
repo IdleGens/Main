@@ -1,0 +1,3 @@
+on command "mine":
+    cancel event
+    send "&cMine is closed for renovations, it'll be up again soon!"

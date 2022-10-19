@@ -1,0 +1,272 @@
+on load:
+	set {mineElement} to purple concrete with nbt compound from "{mineElement:1}"
+
+	set {mining::pickaxes::1} to unbreakable wooden pickaxe of unbreaking 1
+	set {mining::pickaxes::2} to unbreakable stone pickaxe of unbreaking 1
+	set {mining::pickaxes::3} to unbreakable iron pickaxe of unbreaking 1
+	set {mining::pickaxes::4} to unbreakable diamond pickaxe of unbreaking 1
+	set {mining::pickaxes::5} to unbreakable netherite pickaxe of unbreaking 1
+	set {mining::pickaxes::6} to unbreakable golden pickaxe of unbreaking 1
+	set {mining::pickaxes::7} to unbreakable golden pickaxe of efficiency 4
+	set {mining::pickaxes::8} to unbreakable golden pickaxe of efficiency 10
+
+	loop {mining::pickaxes::*}:
+		set {_nbt} to nbt compound of loop-value
+		set tag "tag;HideFlags" of {_nbt} to 127
+		set {mining::pickaxes::%loop-index%} to item from nbt {_nbt}
+
+
+
+
+
+
+	loop {mine_block::*}:
+		placeMineBlock(loop-value)
+	delete {mine_block::%{_loc}%}
+
+
+function miningPickaxeLore(nbt: nbt compound) :: strings:
+	set {_tier} to thisNumber(int tag "Pickaxe;tier" of {_nbt}) ? 1
+	set {_fortune} to thisNumber(int tag "Pickaxe;fortune" of {_nbt}) ? 1	
+	set {_luck} to thisNumber(int tag "Pickaxe;luck" of {_nbt}) ? 0	
+
+	add "" to {_lore::*}
+	add "%{clr::gray}%&LINFO%{clr::gray}%:" to {_lore::*}
+	add "%{clr::gray}% • %{clr::main}%Right-click%{clr::white}% to upgrade" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Tokens Per Block &5◎&d%{_fortune}%" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Mining Speed %{clr::main}%%{_tier}%" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Luck <##42f572>%{_luck}%" to {_lore::*}
+	add "" to {_lore::*}
+	add "%{clr::main}%&LSPECIAL" to {_lore::*}
+
+	return {_lore::*}
+
+
+function miningTest(nbt: nbt compound) :: item:
+	set {_tier} to thisNumber(int tag "Pickaxe;tier" of {_nbt}) ? 1
+	return {mining::pickaxes::%{_tier}%}
+function miningPickaxe(nbt: nbt compound) :: item:
+	set {_tier} to thisNumber(int tag "Pickaxe;tier" of {_nbt}) ? 1
+	set {_fortune} to thisNumber(int tag "Pickaxe;fortune" of {_nbt}) ? 1
+	set {_item} to {mining::pickaxes::%{_tier}%}
+	set {_inbt} to nbt compound of {_item}
+	set tag "tag;Pickaxe" of {_inbt} to compound tag "Pickaxe" of {_nbt}
+	set {_item} to item from nbt {_inbt}
+	set lore of {_item} to miningPickaxeLore({_nbt})
+	set name of {_item} to "%{clr::mainlight}%[ %{clr::main}%&LMINING PICKAXE %{clr::mainlight}%]"
+
+	return {_item}
+
+
+
+function miningPickaxeGUI(p: player):
+	set {_nbt} to tag "tag" of nbt compound of {_p}'s tool
+	set {_tier} to thisNumber(tag "Pickaxe;tier" of {_nbt}) ? 1
+	set {_fortune} to thisNumber(int tag "Pickaxe;fortune" of {_nbt}) ? 1	
+	set {_luck} to thisNumber(tag "Pickaxe;luck" of {_nbt}) ? 0	
+
+	set {_fortuneCost} to floor((({_fortune} + 30)^2.2) / 10) - 179
+	set {_luckCost} to floor(1.25^({_luck}+20))
+
+	set {_evolveCost} to floor(4^({_tier}+3))
+	set {_fortuneReq} to {_tier} * 10
+	set {_luckReq} to ceil({_tier} * 2.5)
+
+	create a gui with virtual chest inventory with size 3 named "Mining Pickaxe":
+
+		add "&f" to {_lore::*}
+		add "%{clr::gray}%&LREQUIREMENTS%{clr::gray}%:" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Fortune: %{clr::main}%%{_fortune}%%{clr::gray}%/%{clr::main}%%{_fortuneReq}%" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Luck: <##42f572>%{_luck}%%{clr::gray}%/<##42f572>%{_luckReq}%" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Tokens: &5◎&d%nFormat({-data::%{_p}'s uuid%::crystal})%%{clr::gray}%/&5◎&d%nFormat({_evolveCost})%" to {_lore::*}
+		add "&f" to {_lore::*}
+		add "%{clr::main}%&LCLICK %{clr::main}%Evolve" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Once the requirements are met you" to {_lore::*}
+		add "%{clr::white}%can evolve your pickaxe to make it faster!" to {_lore::*}
+		add "&f" to {_lore::*}
+
+		format gui slot 10 with shiny beacon named "%{clr::mainlight}%[ %{clr::main}%&LEVOLVE %{clr::mainlight}%]" with lore {_lore::*}:
+			if ({_fortune} >= {_fortuneReq}) && ({_luck} >= {_luckReq}):
+				if economy_buyToken(player, {_evolveCost}):
+					set int tag "Pickaxe;tier" of {_nbt} to {_tier} + 1
+					set player's tool to miningPickaxe({_nbt})
+					miningPickaxeGUI(player)
+			else:
+				errorSound(player)
+		delete {_lore::*}
+
+
+		if {_tier} >= 8:
+			format gui slot 10 with barrier named "%{clr::error}%&LMAXXED"
+
+		add "&f" to {_lore::*}
+		add "%{clr::gray}%&LINFO%{clr::gray}%:" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Current Tokens Per Block &5◎&d%{_fortune}%" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Next Tokens Per Block &5◎&d%{_fortune} + 1%" to {_lore::*}
+		add "&f" to {_lore::*}
+		add "%{clr::main}%&LCLICK %{clr::main}%Upgrade" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Upgrade your Token Per Block" to {_lore::*}
+		add "&f" to {_lore::*}
+		add "%{clr::main}%&LPRICE%{clr::main}%:" to {_lore::*}
+		add "%{clr::gray}% • &5◎&d%{_fortuneCost}%" to {_lore::*}
+		add "&f" to {_lore::*}
+
+		format gui slot 14 with emerald named "%{clr::mainlight}%[ %{clr::main}%&LFORTUNE %{clr::mainlight}%]" with lore {_lore::*}:
+			if economy_buyToken(player, {_fortuneCost}):
+				set int tag "Pickaxe;fortune" of {_nbt} to {_fortune} + 1
+				set player's tool to miningPickaxe({_nbt})
+				miningPickaxeGUI(player)
+
+		delete {_lore::*}
+
+		add "&f" to {_lore::*}
+		add "%{clr::gray}%&LINFO%{clr::gray}%:" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Current Luck <##42f572>%{_luck}%" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Next Luck <##42f572>%{_luck} + 1%" to {_lore::*}
+		add "&f" to {_lore::*}
+		add "%{clr::main}%&LCLICK %{clr::main}%Upgrade" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Upgrade your Luck" to {_lore::*}
+		add "&f" to {_lore::*}
+		add "%{clr::main}%&LPRICE%{clr::main}%:" to {_lore::*}
+		add "%{clr::gray}% • &5◎&d%{_luckCost}%" to {_lore::*}
+		add "&f" to {_lore::*}
+
+		format gui slot 16 with lime concrete named "%{clr::mainlight}%[ %{clr::main}%&LLUCK %{clr::mainlight}%]" with lore {_lore::*}:
+			if economy_buyToken(player, {_luckCost}):
+				set int tag "Pickaxe;luck" of {_nbt} to {_luck} + 1
+				set player's tool to miningPickaxe({_nbt})
+				miningPickaxeGUI(player)
+
+
+	open last gui to {_p}
+
+on inventory click:
+	if name of player's inventory is "Mining Pickaxee":
+		if "%click type%" is "number key":
+			cancel event
+		if tag "tag;Pickaxe" of nbt compound of event-item is set:
+			cancel event
+
+on right click:
+	if tag "tag;Pickaxe" of nbt compound of player's tool is set:
+		miningPickaxeGUI(player)
+		cancel event
+
+function placeMineBlock(loc: location):
+	chance of 25%:
+		chance of 5%:
+			set block at {_loc} to purple wool
+			wait 1 tick
+			set tag "tag;mineElement" of nbt compound of block at {_loc} to 3
+			stop
+		set block at {_loc} to magenta concrete
+		wait 1 tick
+		set tag "tag;mineElement" of nbt compound of block at {_loc} to 2
+		stop
+	set block at {_loc} to purple concrete
+	wait 1 tick
+	set tag "tag;mineElement" of nbt compound of block at {_loc} to 1
+	delete {mine_block::%{_loc}%}
+
+
+
+
+on place:
+	if tag "tag;mineElement" of nbt compound of player's tool is set:
+		set {_nbt} to nbt compound of event-block 
+		set tag "tag;mineElement" of {_nbt} to 1
+		send action bar "&aMining Block Placed" to player
+		placeMineBlock(location of event-block)
+
+
+on break:
+	player's gamemode is not creative 
+	player's world is "mining"
+	if tag "tag;mineElement" of nbt compound of event-block is set:
+		set {_pickaxe} to tag "tag;Pickaxe" of nbt compound of player's tool
+		if tag "fortune" of {_pickaxe} is set:
+			set {_mining} to tag "fortune" of {_pickaxe} ? 1
+		else:
+			set {_mining} to 1
+		clear drops
+		set {_miningElement} to tag "tag;mineElement" of nbt compound of event-block
+		set {_mining} to {_mining} * ( 1 + (({_miningElement} - 1) * 0.5))
+		if {-tempdata::%player's uuid%::ratTokenBuff} is set:
+			set {_mining} to ceil({_mining} * ( 1 + ({-tempdata::%player's uuid%::ratTokenBuff} / 100)))
+		
+		
+		if {_miningElement} is 2:
+			play sound "block.amethyst_block.place"
+		if {_miningElement} is 3:
+			play sound "entity.generic.explode" with pitch 1.2
+			set {_luck} to int tag "luck" of {_pickaxe}
+			set {_mining} to ({_mining} * 10)
+			set {_mining} to {_mining} + ceil(({_luck} / 10) * {_mining})
+			luckyWoolBreak(player,  {_luck})
+		play sound "block.tuff.break"
+		play sound "block.anvil.break" with pitch random number between 0 and 1
+		play sound "block.anvil.break" with pitch random number between 1 and 2
+		add {_mining} to {-data::%player's uuid%::crystal}
+		set {mine_block::%location of event-block%} to location of event-block
+		send action bar "&d+&5◎&d%{_mining}%" to player
+		wait 60 seconds
+		placeMineBlock(location of event-block)
+	else:
+		cancel event
+
+
+function luckyWoolBreak(p: player, l: number):
+	chance of (50 + ({_l} * 0.5))%:
+		chance of (1 + ({_l} * 0.05))%:
+			# Pets
+			set {_r} to random integer between 1 and 2
+			if {_r} is 1:
+				give {_p} getPet("rat", random integer between 1 and 5)
+			if {_r} is 2:
+				give {_p} {crates::pets::key}
+			stop
+		chance of (5 + ({_l} * 0.1))%:
+			give {_p} {crates::legendary::key}
+			stop
+		chance of (10 + ({_l} * 0.5))%:
+			give {_p} {crates::epic::key}
+			stop
+		give {_p} {crates::rare::key}
+		stop
+	give {_p} {crates::rare::key}
+
+on right click:
+	entity is a citizen
+	name of entity is "miner"
+	mining_gui(player)
+
+
+command /mine:
+	aliases: mines, mining
+	trigger:
+		play sound "entity.enderman.teleport"
+		teleport player to {mineWorld}
+
+function mining_gui(p: player):
+	play sound "block.chest.open" to {_p}
+	create a gui with virtual chest inventory with size 4 named "Miner":
+		loop 9 times:
+			format gui slot (loop-number - 1) with black stained glass pane named "&f"
+		format gui slot 9, 17, 18, 26 with black stained glass pane named "&f"
+		loop 9 times:
+			format gui slot (loop-number - 1) + 27 with black stained glass pane named "&f"
+		format gui slot 31 with barriers named "%{clr::error}%&lCLOSE" with lore "&f", "&f%{clr::error}%&LCLICK %{clr::error}%Close GUI", "%{clr::errorGray}%Goodbye!", "&f":
+			close player's inventory
+
+		set {_item} to miningPickaxe(nbt compound from "{Pickaxe:{tier:1,fortune:1}}")
+		set {_price} to 10
+
+		format next gui slot with {_item} with lore "&f", "%{clr::gray}%&LCOST%{clr::gray}%: &5◎&d%nFormat({_price})%","&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "%{clr::gray}% • %{clr::white}%Use at %{clr::main}%/mine", "%{clr::gray}% • %{clr::main}%Right-click%{clr::white}% to upgrade", "&f" and "%{clr::main}%&LSPECIAL":
+			if economy_buyToken(player, {_price}):
+				give player {_item}
+
+
+		run on gui close:
+			play sound "block.chest.close" to {_p}
+
+	open last gui to {_p}

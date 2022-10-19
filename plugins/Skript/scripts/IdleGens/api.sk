@@ -1,0 +1,83 @@
+function API_hasItem(p: player, i: item) :: boolean:
+	set {_item} to 1 of {_i}
+	set {_num} to item amount of {_i}
+	if amount of {_item} in {_p}'s inventory >= {_num}:
+		return true
+	else:
+		return false
+
+
+function API_canHold(p: player, i: item) :: boolean:
+	if {_p}'s inventory can hold {_i}:
+		return true
+	else:
+		return false
+
+
+function API_errorMessage(p: player, message: string):
+	play sound "entity.enderman.death" with pitch 2 to {_p}
+	send formatted "%{clr::error}%&l! %{clr::error}%%{_message}%" to {_p}
+
+function API_wrapLine(string: string, max: number, addition: string = "") :: string:
+	set {_str::*} to {_string} split at " "
+
+	set {_count} to 0
+	loop {_str::*}:
+		if {_count} >= {_max}:
+			set {_str::%loop-index%} to "%loop-value%%nl%%{_addition}%"
+			set {_count} to 0
+		else:
+			add 1 to {_count}
+
+	return join {_str::*} by " "
+
+function API_wrapLineFull(string: string, max: number, addition: string = "") :: strings:
+	set {_str::*} to {_string} split at " "
+
+	set {_count} to 0
+	loop {_str::*}:
+		if {_count} >= {_max}:
+			set {_str::%loop-index%} to "%loop-value%%nl%%{_addition}%"
+			set {_count} to 0
+		else:
+			add 1 to {_count}
+
+	set {_str} to join {_str::*} by " "
+
+	return {_str} split at "%nl%"
+
+function API_capitalizeFirst(text: texts) :: texts:
+
+	loop {_text::*}:
+		set {_first-char} to first character of loop-value
+		set {_remaining} to last (length of loop-value - 1) characters of loop-value
+
+		set {_output::%loop-index%} to "%{_first-char} in upper case%%{_remaining}%"
+
+	return {_output::*}
+
+function API_capitalizeSentence(text: text, delimiter: text = " ") :: text:
+
+
+	set {_words::*} to split {_text} by {_delimiter}
+	set {_output} to join API_capitalizeFirst({_words::*}) by {_delimiter}
+
+	return {_output}
+
+function API_multiItemPurchase(p: player, i: items, ii: item) :: boolean:
+	set {_n} to 0
+	loop {_i::*}:
+		if API_hasItem({_p},loop-value):
+			add 1 to {_n}
+	if {_n} >= amount of {_i::*}:
+		if API_canHold({_p}, {_ii}):
+			remove {_i::*} from {_p}'s inventory
+			give {_p} {_ii}
+			play sound "block.amethyst_cluster.hit" with pitch 2 to {_p}
+			return true
+		else:
+			API_errorMessage({_p},"Not enough space to hold item!")
+			return false			
+	else:
+		API_errorMessage({_p},"Error, insufficient items.")
+		return false

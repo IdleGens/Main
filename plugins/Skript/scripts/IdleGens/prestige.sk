@@ -1,0 +1,59 @@
+
+function prestigeMenu(p: player):
+	create a gui with virtual chest inventory with size 3 named "Prestige":
+
+		loop (9 * 3) times:
+			format gui slot (loop-number - 1) with gray stained glass pane named "&f"
+
+
+
+		set {_item} to yellow concrete
+
+		add "&f" to {_lore::*}
+		add "%{clr::gray}%&LREQUIREMENTS%{clr::gray}%:" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Level: %{clr::main}%%{-data::%{_p}'s uuid%::level}%%{clr::mainLight}% /%{clr::main}%100" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Tokens: &5◎&d%nFormat({-data::%{_p}'s uuid%::crystal})%%{clr::gray}%/&5◎&d%nFormat(prestigeCost({_p}))%" to {_lore::*}
+		add "&f" to {_lore::*}
+		add "%{clr::gray}%&LREWARDS%{clr::gray}%:" to {_lore::*}
+		add "%{clr::gray}% • %{clr::main}%+25 %{clr::white}%Gen Slots" to {_lore::*}
+		add "%{clr::gray}% • %{clr::main}%+0.1 %{clr::white}%Multi" to {_lore::*}
+		add "&f" to {_lore::*}
+		add "%{clr::main}%&LCLICK %{clr::main}%Prestige" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Once the requirements are met you" to {_lore::*}
+		add "%{clr::white}%can prestige and earn major buffs!" to {_lore::*}
+		add "&f" to {_lore::*}
+
+		if {-data::%{_p}'s uuid%::level} < 100:
+			set {_item} to barriers
+		if {-data::%{_p}'s uuid%::crystal} < prestigeCost({_p}):
+			set {_item} to barriers
+
+		format gui slot 13 with {_item} named "%{clr::mainlight}%[ %{clr::main}%&lPRESTIGE %{clr::mainlight}%]" with lore {_lore::*}:
+			if {-data::%{_p}'s uuid%::level} >= 100:
+				if economy_buyToken(player, prestigeCost({_p})):
+					add 1 to {-data::%player's uuid%::prestige}
+					add 0.1 to {-data::%player's uuid%::multi}
+					set {-data::%player's uuid%::xp} to 0
+					set {-data::%player's uuid%::level} to 1
+					play sound "ui.toast.challenge_complete" with volume 10 and pitch 0.3
+					broadcast "&f"
+					broadcast formatted "%title()% %{clr::white}%%player% has prestiged %{clr::gray}%(%{clr::main}%%{-data::%player's uuid%::prestige}%%{clr::gray}%)"
+					broadcast "&f"
+					execute console command "/tg slot add 25 %player%"
+					loop all players:
+						loop-player is not player
+						play sound "item.totem.use" with pitch 2 to loop-player
+					
+			else:
+				API_errorMessage(player, "You do not meet the level requirement")
+
+	open last gui to {_p}
+
+
+function prestigeCost(p: player) :: number:
+	set {_pres} to {-data::%{_p}'s uuid%::prestige} ? 1
+	return ({_pres} ^ 2) * 500000
+
+command /prestige:
+	trigger:
+		prestigeMenu(player)

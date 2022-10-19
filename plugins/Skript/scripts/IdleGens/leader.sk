@@ -1,0 +1,42 @@
+on load:
+	leader_reload()
+
+function leader_reload():
+	set {_query} to new mongosk query
+	set mongo sort of {_query} to mongo descending sort by field "coins"
+	set mongo collection of {_query} to {-Database::playersCollection}
+	set {_num} to "10" parsed as integer
+	set {_query}'s mongo limit to {_num}
+	set {_sort::*} to all mongo document from query {_query}
+	loop 10 times:
+		set {_u} to mongo value "_id" of {_sort::%loop-number%}
+		set {_coin} to mongo value "coins" of {_sort::%loop-number%}
+		set {_p} to "%{_u}%" parsed as offline player
+		execute console command "/hd setline topcoin %loop-number + 2% &7%loop-number%. &e%{_p}% &6⛁&e%nFormat({_coin})%"
+
+	set {_query} to new mongosk query
+	set mongo sort of {_query} to mongo descending sort by field "level"
+	set mongo collection of {_query} to {-Database::playersCollection}
+	set {_num} to "10" parsed as integer
+	set {_query}'s mongo limit to {_num}
+	set {_sort::*} to all mongo document from query {_query}
+	loop 10 times:
+		set {_u} to mongo value "_id" of {_sort::%loop-number%}
+		set {_coin} to mongo value "level" of {_sort::%loop-number%}
+		set {_p} to "%{_u}%" parsed as offline player
+		execute console command "/hd setline toplvl %loop-number + 2% &7%loop-number%. &a%{_p}% &a%nFormat({_coin})%"
+
+	set {_query} to new mongosk query
+	set mongo sort of {_query} to mongo descending sort by field "prestige"
+	set mongo collection of {_query} to {-Database::playersCollection}
+	set {_num} to "10" parsed as integer
+	set {_query}'s mongo limit to {_num}
+	set {_sort::*} to all mongo document from query {_query}
+	loop 10 times:
+		set {_u} to mongo value "_id" of {_sort::%loop-number%}
+		set {_coin} to mongo value "prestige" of {_sort::%loop-number%}
+		set {_p} to "%{_u}%" parsed as offline player
+		execute console command "/hd setline topprestige %loop-number + 2% &7%loop-number%. &d%{_p}% &d%nFormat({_coin})%"
+
+every 25 minutes:
+	leader_reload()

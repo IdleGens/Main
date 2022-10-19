@@ -1,0 +1,21 @@
+prefix: 'plotsquarred'
+
+# SQLite section
+sqlite:
+  # Should SQLite be used?
+  use: false
+  # The file to use
+  db: "storage"
+
+# MySQL section
+mysql:
+  # Should MySQL be used?
+  use: true
+  host: "23.175.144.172"
+  port: "3306"
+  user: "u56_VH39T3KOq5"
+  password: "D^D^UVmJXj=zbO=mdOvEANHJ"
+  database: "s56_aaa"
+  # Set additional properties: https://goo.gl/wngtN8
+  properties: 
+  - "useSSL=false"

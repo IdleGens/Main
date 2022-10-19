@@ -1,0 +1,39 @@
+
+function r_broadcast():
+	set {_r} to random integer between 1 and 5
+
+	broadcast({_r})
+
+
+
+function broadcast(r: number):
+	loop all players:
+		play sound "block.note_block.guitar" to loop-player
+
+	broadcast dash({clr::main})
+	broadcast "&f"
+
+	if {_r} is 1:
+		broadcast formatted "%{clr::main}%&LRANKS"
+		broadcast formatted "%{clr::gray}% • %{clr::white}%Buy ranks at %{clr::main}%/buy%{clr::white}% to get extra plots and extra buffs"
+	if {_r} is 2:
+		broadcast formatted "%{clr::main}%&LSELLWANDS"
+		broadcast formatted "%{clr::gray}% • %{clr::white}%Buy sellwands at %{clr::main}%/buy%{clr::white}%, They are all infinite"
+		broadcast formatted "%{clr::white}%you can get up to a %{clr::main}%5x Infinite Sellwand"
+	if {_r} is 3:
+		broadcast formatted "%{clr::main}%&LCRATES"
+		broadcast formatted "%{clr::gray}% • %{clr::white}%You can buy crates at %{clr::main}%/buy%{clr::white}%"
+	if {_r} is 4:
+		broadcast formatted "%{clr::main}%&LFREE FLY!"
+		broadcast formatted "%{clr::gray}% • %{clr::white}%We have free fly %{clr::main}%/fly!"
+	if {_r} is 5:
+		broadcast formatted "%{clr::main}%&LFREE RANK!"
+		broadcast formatted "%{clr::gray}% • %{clr::white}%Do you want %{clr::main}%a free Rank?"
+		broadcast formatted "%{clr::gray}% • %{clr::white}%Do you want %{clr::main}%an Extra Plot %{clr::white}%and a %{clr::main}%10%% sell boost"
+		broadcast formatted "%{clr::gray}% • %{clr::white}%Do %{clr::main}%/link %{clr::white}%and follow the instructions"
+
+	broadcast "&f"
+	broadcast dash({clr::main})
+
+every 2.367 minutes:
+	r_broadcast()

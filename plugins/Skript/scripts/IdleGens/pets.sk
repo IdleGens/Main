@@ -1,0 +1,300 @@
+on load:
+	set {pets::items::fox} to {fox_head} named "%{clr::mainlight}%[ %{clr::main}%&LFOX PET%{clr::mainlight}% ]"
+	set {pets::pet::fox::PowerMulti} to 0.2
+	set {pets::pet::fox::PowerBase} to 1
+	set {pets::pet::fox::UpgradeName} to "Sly Speed"
+	set {pets::pet::fox::UpgradeDesc} to "makes you [power]%%%{clr::white}% faster"
+
+
+	set {pets::items::rat} to {rat_head} named "%{clr::mainlight}%[ %{clr::main}%&LRAT PET%{clr::mainlight}% ]"
+	set {pets::pet::rat::PowerMulti} to 0.05
+	set {pets::pet::rat::PowerBase} to 10
+	set {pets::pet::rat::UpgradeName} to "Token Sniffer"
+	set {pets::pet::rat::UpgradeDesc} to "gives you [power]%%%{clr::white}% more tokens while mining"
+
+
+	set {pets::items::capybara} to {capybara_head} named "%{clr::mainlight}%[ %{clr::main}%&LCAPYBARA PET%{clr::mainlight}% ]"
+	set {pets::pet::capybara::PowerMulti} to 0.5
+	set {pets::pet::capybara::PowerBase} to 8
+	set {pets::pet::capybara::UpgradeName} to "Ok, I Pull Up!"
+	set {pets::pet::capybara::UpgradeDesc} to "gives you [power]%%%{clr::white}% more money when selling"
+
+	set {pets::items::bunny} to {bunny_head} named "%{clr::mainlight}%[ %{clr::main}%&LBUNNY PET%{clr::mainlight}% ]"
+	set {pets::pet::bunny::PowerMulti} to 5000
+	set {pets::pet::bunny::PowerBase} to 10000
+	set {pets::pet::bunny::UpgradeName} to "Bunnies Luck"
+	set {pets::pet::bunny::UpgradeDesc} to "every 30 minutes, %{clr::main}%1%%%{clr::white}% interest on tokens, capped at [power]%{clr::white}% tokens"
+
+
+	set {pets::items::rabbit} to {rabbit_head} named "%{clr::mainlight}%[ %{clr::main}%&LRABBIT PET%{clr::mainlight}% ]"
+	set {pets::pet::rabbit::PowerMulti} to 100000
+	set {pets::pet::rabbit::PowerBase} to 200000
+	set {pets::pet::rabbit::UpgradeName} to "Rabbits Foot"
+	set {pets::pet::rabbit::UpgradeDesc} to "every 30 minutes, %{clr::main}%1%%%{clr::white}% interest on coins, capped at [power]%{clr::white}% coins"
+
+	set {pets::items::cow} to {cow_head} named "%{clr::mainlight}%[ %{clr::main}%&LCOW PET%{clr::mainlight}% ]"
+	set {pets::pet::cow::PowerMulti} to 0.1
+	set {pets::pet::cow::PowerBase} to 50
+	set {pets::pet::cow::UpgradeName} to "Moo."
+	set {pets::pet::cow::UpgradeDesc} to "Gain [power]%%%{clr::white}% more crops."
+
+	set {pets::items::spider} to {spider_head} named "%{clr::mainlight}%[ %{clr::main}%&LSPIDER PET%{clr::mainlight}% ]"
+	set {pets::pet::spider::PowerMulti} to 0.06
+	set {pets::pet::spider::PowerBase} to 15
+	set {pets::pet::spider::UpgradeName} to "Spidey Sense"
+	set {pets::pet::spider::UpgradeDesc} to "gives you [power]%%%{clr::white}% more tokens while mining, but also a %{clr::main}%75%%%{clr::white}% speed increase"
+
+	set {pets::items::shark} to {shark_head} named "%{clr::mainlight}%[ %{clr::main}%&LSHARK PET%{clr::mainlight}% ]"
+	set {pets::pet::shark::PowerMulti} to 0.7
+	set {pets::pet::shark::PowerBase} to 30
+	set {pets::pet::shark::UpgradeName} to "Hungry Shark"
+	set {pets::pet::shark::UpgradeDesc} to "Fishes for you every 5 minutes, and has a [power]%%%{clr::white}% chance to drop a legendary fish."
+
+	set {pets::items::turtle} to {turtle_head} named "%{clr::mainlight}%[ %{clr::main}%&LTURTLE PET%{clr::mainlight}% ]"
+	set {pets::pet::turtle::PowerMulti} to 0.15
+	set {pets::pet::turtle::PowerBase} to 20
+	set {pets::pet::turtle::UpgradeName} to "I wish, for extra fish!"
+	set {pets::pet::turtle::UpgradeDesc} to "When you fish, this pet has a [power]%%%{clr::white}% chance to give you extra fish when you catch a fish!"
+
+	set {pets::items::pet_food} to glowstone dust with nbt compound from "{PetFood:100}"  named "%{clr::mainlight}%[ %{clr::main}%&LPET FOOD%{clr::mainlight}% ]" with lore "&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "%{clr::gray}% • %{clr::white}%XP Amount: %{clr::main}%100", "%{clr::gray}% • %{clr::white}%Feed your pet at %{clr::main}%/pets", "&f"
+
+	set {pets::items::crazy_pet_food} to blaze powder with nbt compound from "{PetFood:500}"  named "%{clr::mainlight}%[ %{clr::main}%&LCRAZY PET FOOD%{clr::mainlight}% ]" with lore "&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "%{clr::gray}% • %{clr::white}%XP Amount: %{clr::main}%500", "%{clr::gray}% • %{clr::white}%Feed your pet at %{clr::main}%/pets", "&f"
+
+	set {pets::items::insane_pet_food} to glowstone with nbt compound from "{PetFood:1000}"  named "%{clr::mainlight}%[ %{clr::main}%&LINSANE PET FOOD%{clr::mainlight}% ]" with lore "&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "%{clr::gray}% • %{clr::white}%XP Amount: %{clr::main}%1k", "%{clr::gray}% • %{clr::white}%Feed your pet at %{clr::main}%/pets", "&f"
+
+	set {pets::items::god_pet_food} to shiny shroomlight with nbt compound from "{PetFood:5000}"  named "%{clr::mainlight}%[ %{clr::main}%&LGODLY PET FOOD%{clr::mainlight}% ]" with lore "&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "%{clr::gray}% • %{clr::white}%XP Amount: %{clr::main}%10k", "%{clr::gray}% • %{clr::white}%Feed your pet at %{clr::main}%/pets", "&f"
+
+
+
+function spawnPet(p: player):
+	if {-data::%{_p}'s uuid%::pet} is not set:
+		delete the following holograms of {_p}
+		stop		
+	if {-data::%{_p}'s uuid%::petVisible} is false:
+		delete the following holograms of {_p}
+		stop
+	delete the following holograms of {_p}
+	set {_item} to {-data::%{_p}'s uuid%::pet}
+	type of {_item} is player head
+	set {_offset::*} to 2.35 meter above, 0.5 meters horizontally behind, 0.75 meters right
+	create new holo with line ("&7%{_p}%&7's &e%display name of {_item}%" and {_item}) that follows {_p} with offset {_offset::*} and store it in {-Pets::*}
+	if holograms {-Pets::*} is hidden from {_p}:
+		hide holograms {-Pets::*} from {_p}
+
+on player world change:
+	wait 4 ticks
+	spawnPet(player)
+
+on join:
+	wait 4 ticks
+	spawnPet(player)
+	pet_loadBuffs(player)
+
+
+function getPetPower(lvl: number, multi: number, base: number, rarity: number) :: number:
+	return ({_base}) + (({_lvl} * {_multi}) * ({_rarity}))
+
+function petLore(i: item) :: item:
+
+	set {_nbt} to nbt compound of {_i}
+
+	set {_xp} to int tag "tag;PetXP" of {_nbt}
+	set {_lvl} to int tag "tag;PetLVL" of {_nbt}
+	set {_rarity} to int tag "tag;PetRARITY" of {_nbt}
+	set {_id} to tag "tag;PetID" of {_nbt}
+	set {_mxp} to getPetMaxXP({_lvl}, {_rarity})
+
+	set {_perc} to ceil(({_xp} / {_mxp}) * 10)
+	set {_str} to "%{clr::gray}%["
+
+	loop {_perc} times:
+		set {_str} to "%{_str}%%{clr::main}%&l|"
+	loop 10 - {_perc} times:
+		set {_str} to "%{_str}%%{clr::grayLight}%&l|"
+	set {_str} to "%{_str}%%{clr::gray}%]"
+
+	if {_lvl} is 100:
+		set {_str} to "%{clr::gray}%[%{clr::main}%&lMAXED%{clr::gray}%]"
+
+	add "&f" to {_lore::*}
+	add "%{clr::gray}%&LINFO%{clr::gray}%:" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Level: %{clr::main}%%{_lvl}% %{_str}%" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Rarity: %{clr::main}%%getRarity({_rarity})%" to {_lore::*}
+	add "&f" to {_lore::*}
+	add "%{clr::main}%&lABILITY%{clr::main}% %{pets::pet::%{_id}%::UpgradeName}%" to {_lore::*}
+
+	set {_str} to {pets::pet::%{_id}%::UpgradeDesc}
+	set {_power} to getPetPower({_lvl}, {pets::pet::%{_id}%::PowerMulti} ,{pets::pet::%{_id}%::PowerBase}, {_rarity})
+	replace "[power]" in {_str} with "%{clr::main}%%nFormat({_power})%"
+
+	set {_lines::*} to API_wrapLineFull({_str}, 7)
+	set {_lines::1} to "%{clr::gray}% • %{clr::white}%%{_lines::1}%"
+	loop all indexes of {_lines::*}:
+		set {_lines::%loop-value%} to "%{clr::white}%%{_lines::%loop-value%}%"
+		add {_lines::%loop-value%} to {_lore::*}
+	add "&f" to {_lore::*}
+
+	return {_i} with lore {_lore::*}
+
+
+function getPet(pet: string, rarity: number = 1) :: item:
+	set {_item} to {pets::items::%{_pet}%}
+	set {_nbt} to nbt compound of {_item}
+	set tag "tag;Pet" of {_nbt} to true
+	set tag "tag;PetID" of {_nbt} to {_pet}
+	set int tag "tag;PetXP" of {_nbt} to 0
+	set int tag "tag;PetLVL" of {_nbt} to 1
+	set int tag "tag;PetRARITY" of {_nbt} to {_rarity}
+	set {_item} to item from nbt {_nbt}
+	
+	return petLore({_item})
+
+function pets_petbagUI(p: player):
+	if {-data::%{_p}'s uuid%::petVisible} is not set:
+		set {-data::%{_p}'s uuid%::petVisible} to true
+	if {-data::%{_p}'s uuid%::pet} is set:
+		set {-data::%{_p}'s uuid%::pet} to petLore({-data::%{_p}'s uuid%::pet})
+	create gui with virtual chest inventory with 5 rows named "Pets Menu":
+		loop (5 * 9) times:
+			format gui slot (loop-number - 1) with black stained glass panes named "&f"
+
+
+		loop 7 times:
+			format gui slot (loop-number - 1) + 28 with stealable air
+
+
+		set {_item} to barrier named "%{clr::error}%&LEMPTY PET SLOT" with lore "&f", "%{clr::error}%&LCLICK %{clr::error}%Swap", "%{clr::errorgray}% • %{clr::error}%Swap pet with pet in cursor slot", "&f"
+		if {-data::%{_p}'s uuid%::pet} is set:
+			set {_item} to {-data::%{_p}'s uuid%::pet}
+		format gui slot 13 with {_item}:
+			set {_nbt} to nbt compound of gui cursor
+			if tag "tag;Pet" of {_nbt} is set:
+				set {_item} to gui cursor
+				if {-data::%{_p}'s uuid%::pet} is set:
+					set cursor slot of player to {-data::%{_p}'s uuid%::pet} 
+				else:
+					set cursor slot of player to air
+				set {-data::%player's uuid%::pet} to {_item}
+				pets_petbagUI(player)
+				
+			else if gui cursor is air:
+				set cursor slot of player to {-data::%{_p}'s uuid%::pet} 
+				delete {-data::%{_p}'s uuid%::pet} 
+				pets_petbagUI(player)		
+
+		if {-data::%{_p}'s uuid%::petVisible} is true:
+			set {_toggle} to "&aEnabled"
+		else:
+			set {_toggle} to "&cDisabled"
+		format gui slot 28 with eye of ender named "%{clr::main}%&LPET VISIBILITY" with lore "&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "&f%{clr::gray}% • %{clr::white}%Toggled: %{_toggle}%", "&f", "%{clr::main}%&LCLICK%{clr::main}% Toggle", "%{clr::gray}% • %{clr::white}%Toggle Pet Visiblity", "&f":
+			if {-data::%{_p}'s uuid%::petVisible} is true:
+				set {-data::%{_p}'s uuid%::petVisible} to false
+			else:
+				set {-data::%{_p}'s uuid%::petVisible} to true
+			play sound "block.lever.click" with pitch 2
+			pets_petbagUI(player)
+		format gui slot 29 with bread named "%{clr::main}%&LFEED PET" with lore "&f", "%{clr::main}%&LCLICK%{clr::main}% Feed Pet", "%{clr::gray}% • %{clr::white}%Feed Pet with what is in your hand", "&f": 
+			set {_nbt} to nbt compound of gui cursor
+			if tag "tag;PetFood" of {_nbt} is set:
+				set {_amount} to thisNumber(int tag "tag;PetFood" of {_nbt})
+				remove 1 from item amount of cursor slot of player 
+				play sound "entity.fox.eat"
+				addPetXP(player, {_amount})
+				if {-data::%{_p}'s uuid%::pet} is set:
+					set {-data::%{_p}'s uuid%::pet} to petLore({-data::%{_p}'s uuid%::pet})
+
+				set {_item} to barrier named "%{clr::error}%&LEMPTY PET SLOT" with lore "&f", "%{clr::error}%&LCLICK %{clr::error}%Swap", "%{clr::errorgray}% • %{clr::error}%Swap pet with pet in cursor slot", "&f"
+				if {-data::%{_p}'s uuid%::pet} is set:
+					set {_item} to {-data::%{_p}'s uuid%::pet}
+				format gui slot 13 with {_item}:
+					set {_nbt} to nbt compound of gui cursor
+					if tag "tag;Pet" of {_nbt} is set:
+						set {_item} to gui cursor
+						if {-data::%{_p}'s uuid%::pet} is set:
+							set cursor slot of player to {-data::%{_p}'s uuid%::pet} 
+						else:
+							set cursor slot of player to air
+						set {-data::%player's uuid%::pet} to {_item}
+						pets_petbagUI(player)
+						
+					else if gui cursor is air:
+						set cursor slot of player to {-data::%{_p}'s uuid%::pet} 
+						delete {-data::%{_p}'s uuid%::pet} 
+						pets_petbagUI(player)
+						
+			else:
+				errorSound(player)
+		run on gui close:
+			pet_loadBuffs(player)
+			spawnPet(player)
+	open last gui to {_p}
+
+
+
+on right click:
+	set {_nbt} to nbt compound of player's tool
+	if tag "tag;Pet" of {_nbt} is set:
+		cancel event
+		make player execute "/pets"
+
+function pet_loadBuffs(p: player):
+	set {_nbt} to nbt compound of {-data::%{_p}'s uuid%::pet}
+	set {-tempdata::%{_p}'s uuid%::petLVL} to thisNumber(int tag "tag;PetLVL" of {_nbt})
+	set {-tempdata::%{_p}'s uuid%::petRARITY} to thisNumber(int tag "tag;PetRARITY" of {_nbt})
+	set {-tempdata::%{_p}'s uuid%::petID} to tag "tag;PetID" of {_nbt}
+	
+	set {_pet} to {-tempdata::%{_p}'s uuid%::petID}
+	set {_power} to getPetPower({-tempdata::%{_p}'s uuid%::petLVL}, {pets::pet::%{_pet}%::PowerMulti} ,{pets::pet::%{_pet}%::PowerBase}, {-tempdata::%{_p}'s uuid%::petRARITY})
+	set {-tempdata::%{_p}'s uuid%::petPOWER} to {_power}
+	delete {-tempdata::%{_p}'s uuid%::ratTokenBuff}
+	delete {-tempdata::%{_p}'s uuid%::capybaraCoinBuff}
+	delete {-tempdata::%{_p}'s uuid%::sharkFishing}
+	set {_p}'s walk speed to 0.2
+	if {_pet} is "fox":
+		set {_p}'s walk speed to ({_p}'s walk speed + ({_p}'s walk speed * ({_power} / 100)))
+	if {_pet} is "rat":
+		set {-tempdata::%{_p}'s uuid%::ratTokenBuff} to {_power}
+	if {_pet} is "spider":
+		set {-tempdata::%{_p}'s uuid%::ratTokenBuff} to {_power}
+		set {_p}'s walk speed to ({_p}'s walk speed + ({_p}'s walk speed * 0.75))
+	if {_pet} is "capybara":
+		set {-tempdata::%{_p}'s uuid%::capybaraCoinBuff} to {_power} / 100
+	if {_pet} is "shark":
+		set {-tempdata::%{_p}'s uuid%::sharkFishing} to {_power}
+	if {_pet} is "turtle":
+		set {-tempdata::%{_p}'s uuid%::turtleFishing} to {_power}
+
+every 30 minutes:
+	loop all players:
+		if {-tempdata::%loop-player's uuid%::petID} is "bunny":
+			set {_tokens} to {-data::%loop-player's uuid%::crystal}
+			set {_power} to {-tempdata::%loop-player's uuid%::petPOWER}
+			set {_addTokens} to {_tokens} * 0.01
+			
+			if {_addTokens} > {_power}:
+				set {_addTokens} to {_power}
+			add {_addTokens} to {-data::%loop-player's uuid%::crystal}
+			send dash({clr::main}) to loop-player
+			send "&f" to loop-player
+			send "%{clr::main}%&LBUNNY PET" to loop-player
+			send "%{clr::gray}% • %{clr::white}%The Bunny has found %{_addTokens}% tokens" to loop-player
+			send "&f" to loop-player
+			send dash({clr::main}) to loop-player
+		if {-tempdata::%loop-player's uuid%::petID} is "rabbit":
+			set {_money} to loop-player's balance
+			set {_power} to {-tempdata::%loop-player's uuid%::petPOWER}
+			set {_addMoney} to {_money} * 0.01
+			
+			if {_addMoney} > {_power}:
+				set {_addMoney} to {_power}
+			add {_addMoney} to loop-player's balance
+			send dash({clr::main}) to loop-player
+			send "&f" to loop-player
+			send "%{clr::main}%&LRABBIT PET" to loop-player
+			send "%{clr::gray}% • %{clr::white}%The Rabbit has found %{_addMoney}% coins" to loop-player
+			send "&f" to loop-player
+			send dash({clr::main}) to loop-player
+
+command /pets:
+	trigger:
+		pets_petbagUI(player)

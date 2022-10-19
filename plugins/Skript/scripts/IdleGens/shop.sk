@@ -1,0 +1,190 @@
+import:
+	mc.warp.transmitgenerators.API
+
+command /shop:
+	trigger:
+		if {-tempdata::%player's uuid%::shop} is not set:
+			shop(player,"build",1)
+		else:
+			shop(player,"%{-tempdata::%player's uuid%::shop}%",1)
+
+
+command /tokenshop:
+	trigger:
+		shop(player,"special",1)
+
+function shop(p: player,type: string,page: number):
+
+	set {_u} to {_p}'s uuid
+	set {-tempdata::%{_p}'s uuid%::shop} to {_type}
+	create a gui with virtual chest inventory with size 6 named "Shop : %{_type}% : %{_page}%":
+		loop 9 times:
+			format gui slot (loop-number - 1) with black stained glass pane named "&f"
+		format gui slot 1,10,19,28,37,46 with black stained glass pane named "&f"
+		format gui slot 8,17,26,35,44,53 with black stained glass pane named "&f"
+		format gui slot 0,8 with black stained glass pane named "&f"
+		loop 9 times:
+			format gui slot (loop-number - 1) + 45 with black stained glass pane named "&f"
+		format gui slot 53 with barriers named "%{clr::error}%&lCLOSE" with lore "&f", "&f%{clr::error}%&LCLICK %{clr::error}%Close GUI", "%{clr::errorGray}%Goodbye!", "&f":
+			close player's inventory
+		set {_item} to block of raw gold named "%{clr::mainLight}%[ %{clr::main}%&LBUILDING BLOCKS%{clr::mainLight}% ]" with lore "&7", "%{clr::main}%&LCLICK %{clr::main}%View Building Blocks", "%{clr::gray}% • %{clr::white}%View all the building blocks in the shop." and "&7"
+		if {_type} is "build":
+			format gui slot 0 with shiny {_item}
+		else:
+			format gui slot 0 with {_item}:
+				shop({_p},"build",1)
+
+		set {_item} to yellow concrete named "%{clr::mainLight}%[ %{clr::main}%&LGENERATORS%{clr::mainLight}% ]" with lore "&7", "%{clr::main}%&LCLICK %{clr::main}%View Generators", "%{clr::gray}% • %{clr::white}%View all the generators in the shop." and "&7"
+		if {_type} is "gens":
+			format gui slot 9 with shiny {_item}
+		else:
+			format gui slot 9 with {_item}:
+				shop({_p},"gens",1)
+
+		set {_item} to gold block named "%{clr::mainLight}%[ %{clr::main}%&LDECORATION%{clr::mainLight}% ]" with lore "&7", "%{clr::main}%&LCLICK %{clr::main}%View Decorations", "%{clr::gray}% • %{clr::white}%View all the decorations in the shop." and "&7"
+		if {_type} is "deco":
+			format gui slot 18 with shiny {_item}
+		else:
+			format gui slot 18 with {_item}:
+				shop({_p},"deco",1)
+
+		set {_item} to gold pickaxe named "%{clr::mainLight}%[ %{clr::main}%&LTOOLS%{clr::mainLight}% ]" with lore "&7", "%{clr::main}%&LCLICK %{clr::main}%View Tools", "%{clr::gray}% • %{clr::white}%View all the tools in the shop." and "&7"
+		if {_type} is "tools":
+			format gui slot 27 with shiny {_item}
+		else:
+			format gui slot 27 with {_item}:
+				shop({_p},"tools",1)
+
+		set {_item} to raw gold named "%{clr::mainLight}%[ %{clr::main}%&LMISC%{clr::mainLight}% ]" with lore "&7", "%{clr::main}%&LCLICK %{clr::main}%View Misc", "%{clr::gray}% • %{clr::white}%View all the misc shit in the shop." and "&7"
+		if {_type} is "misc":
+			format gui slot 36 with shiny {_item}
+		else:
+			format gui slot 36 with {_item}:
+				shop({_p},"misc",1)
+		set {_item} to golden apple named "%{clr::mainLight}%[ %{clr::main}%&LSPECIAL%{clr::mainLight}% ]" with lore "&7", "%{clr::main}%&LCLICK %{clr::main}%View Special", "%{clr::gray}% • %{clr::white}%View all the special items in the shop." and "&7"
+		if {_type} is "special":
+			format gui slot 45 with shiny {_item}
+		else:
+			format gui slot 45 with {_item}:
+				shop({_p},"special",1)
+		
+		format gui slot 50 with lime dye named "%{clr::main}%&lNEXT PAGE" with lore "&f", "&f%{clr::main}%&LCLICK %{clr::main}%Go to Next Page", "%{clr::gray}% • %{clr::white}%Go checkout more items.", "&f":
+			shop(player, {_type}, {_page} + 1)
+		format gui slot 49 with gray dye named "%{clr::main}%&lGO BACK" with lore "&f", "&f%{clr::main}%&LCLICK %{clr::main}%Go to the previous page", "%{clr::gray}% • %{clr::white}%Go checkout previous items.", "&f":
+			if {_page} <= 1:
+				errorSound(player)
+			else:
+				shop(player, {_type}, {_page} - 1)
+
+		set {_guiList::*} to page {_page} of {shop::%{_type}%::items::*} with 24 lines
+
+
+		loop {_guiList::*}:
+			set {_item} to loop-value
+			set {_preitem} to loop-value
+			set {_nbt} to nbt compound of {_item}
+			if tag "tag;keepNBT" of {_nbt} is not set:
+				delete tag "tag" of {_nbt}
+			set {_item} to item from nbt {_nbt}
+			set {_lore::*} to lore of {_preitem}
+			set {_cost} to tag "tag;cost" of nbt compound of loop-value
+			set {_gen} to tag "tag;gen" of nbt compound of loop-value
+			set {_tokencost} to tag "tag;tokencost" of nbt compound of loop-value
+
+			delete {_lore::%size of {_lore::*}%}
+
+			if length of {_lore::%size of {_lore::*}%} is less than 3:
+				delete {_lore::%size of {_lore::*}%}
+
+			add "&f" to {_lore::*}
+			add "%{clr::main}%&LCLICK %{clr::main}%Purchase"  to {_lore::*}
+			add "%{clr::gray}% • %{clr::white}%Purchase this item." to {_lore::*}
+			add "&f" to {_lore::*}
+			if {_tokencost} is set:
+				add "%{clr::main}%&lPRICE%{clr::main}%: &5◎&d%nFormat({_tokencost})%" to {_lore::*}
+			else:
+				add "%{clr::main}%&lPRICE%{clr::main}%: &6⛃&e%nFormat({_cost})%" to {_lore::*}
+			add "&f" to {_lore::*}
+
+			if {_gen} is set:
+				set {_item} to API.getGeneratorBlock({_gen})
+				format next gui slot with 1 of {_item} with lore {_lore::*}:
+					if economy_buyCoin(player, {_cost}):
+						give player {_item}
+			else if {_cost} is set:
+				format next gui slot with 1 of loop-value named crates_getItemName(loop-value) with lore {_lore::*}:
+					if economy_buyCoin(player, {_cost}):
+						give player {_item}
+			else if {_tokencost} is set:
+				format next gui slot with 1 of loop-value named crates_getItemName(loop-value) with lore {_lore::*}:
+					if economy_buyToken(player, {_tokencost}):
+						give player {_item}
+			
+		
+		if {_type} is "special":
+			if {_page} is 1:	
+				if {-data::%{_p}'s uuid%::added_gens} is not set:
+					set {-data::%{_p}'s uuid%::added_gens} to 1
+				set {_cost} to floor((1.15)^({-data::%{_p}'s uuid%::added_gens} + 10) + 250)
+				format next gui slot with magenta glazed terracotta named "%{clr::mainLight}%[ %{clr::main}%&L1 GEN SLOT%{clr::mainLight}% ]" with lore "&f" ,"%{clr::main}%&LCLICK %{clr::main}%Purchase", "%{clr::gray}% • %{clr::white}%Purchase an extra gen slot.","&f","%{clr::main}%&lPRICE%{clr::main}%: &5◎&d%{_cost}%", "":
+					if economy_buyToken(player, {_cost}):
+						add 1 to {-data::%{_p}'s uuid%::added_gens}
+						execute console command "/tg slot add 1 %player%"	
+						shop(player,"special",1)				
+	open last gui to {_p}
+
+
+
+
+function shop_addGen(cat: string, gen: string, price: number):
+	set {_i} to dirt
+	set {_nbt} to nbt compound of {_i}
+	set tag "tag;cost" of {_nbt} to {_price}
+	set tag "tag;gen" of {_nbt} to {_gen}
+	add item from nbt {_nbt} to {shop::%{_cat}%::items::*}
+
+function shop_add(cat: string, i: item, price: number):
+	set {_nbt} to nbt compound of {_i}
+	set tag "tag;cost" of {_nbt} to {_price}
+	add item from nbt {_nbt} to {shop::%{_cat}%::items::*}
+
+function shop_addToken(cat: string, i: item, price: number):
+	set {_nbt} to nbt compound of {_i}
+	set tag "tag;tokencost" of {_nbt} to {_price}
+	add item from nbt {_nbt} to {shop::%{_cat}%::items::*}
+
+function shop_buy(p: player, i: item, pr: number):
+
+	set {_u} to {_p}'s uuid
+
+	if {_p} can hold {_i}:
+		if {-player::coins::%{_u}%} >= {_pr}:
+			remove {_pr} from {-player::coins::%{_u}%}
+			give {_p} {_i}
+			send formatted "%{-prefix}% &aSuccessful Purchase" to {_p}
+			display_loadScore({_p})
+			play sound "minecraft:block.note_block.chime" at volume 2 and pitch 1.2 for {_p}	
+		else:
+			send formatted "%{-prefix}% &cNot Enough Money" to {_p}
+			play sound "minecraft:block.note_block.didgeridoo" at volume 2 and pitch 0.7 for {_p}			
+	else:
+		send formatted "%{-prefix}% &cInventory Full" to {_p}
+		play sound "minecraft:block.note_block.didgeridoo" at volume 2 and pitch 0.7 for {_p}
+function shop_buyt(p: player, i: item, pr: number):
+
+	set {_u} to {_p}'s uuid
+
+	if {_p} can hold {_i}:
+		if {-player::tokens::%{_u}%} >= {_pr}:
+			remove {_pr} from {-player::tokens::%{_u}%}
+			give {_p} {_i}
+			send formatted "%{-prefix}% &aSuccessful Purchase" to {_p}
+			display_loadScore({_p})
+			play sound "minecraft:block.note_block.chime" at volume 2 and pitch 1.2 for {_p}	
+		else:
+			send formatted "%{-prefix}% &cNot Enough Money" to {_p}
+			play sound "minecraft:block.note_block.didgeridoo" at volume 2 and pitch 0.7 for {_p}			
+	else:
+		send formatted "%{-prefix}% &cInventory Full" to {_p}
+		play sound "minecraft:block.note_block.didgeridoo" at volume 2 and pitch 0.7 for {_p}
+

@@ -1,0 +1,187 @@
+import:
+	mc.warp.transmitgenerators.API
+
+on load:
+	delete {shop::*}
+
+	shop_add("build", 4 of oak logs, 64)
+	shop_add("build", 4 of spruce logs, 64)
+	shop_add("build", 4 of birch logs, 64)
+	shop_add("build", 4 of dark oak logs, 64)
+	shop_add("build", 4 of acacia logs, 64)
+	shop_add("build", 4 of jungle logs, 64)
+	shop_add("build", 16 of cobblestone, 128)
+	shop_add("build", 16 of mossy cobblestone, 128)
+	shop_add("build", 16 of stone, 128)
+	shop_add("build", 16 of smooth stone, 128)
+	shop_add("build", 16 of stone bricks, 128)
+	shop_add("build", 16 of cracked stone bricks, 128)
+	shop_add("build", 16 of chiseled stone bricks, 128)
+	shop_add("build", 16 of mossy stone bricks, 128)
+	shop_add("build", 16 of basalt, 128)
+	shop_add("build", 16 of polished basalt, 128)
+	shop_add("build", 16 of smooth basalt, 128)
+	shop_add("build", 16 of andesite, 128)
+	shop_add("build", 16 of diorite, 128)
+	shop_add("build", 16 of granite, 128)
+	shop_add("build", 16 of polished andesite, 128)
+	shop_add("build", 16 of polished diorite, 128)
+	shop_add("build", 16 of polished granite, 128)
+	shop_add("build", 16 of deepslate, 128)
+	shop_add("build", 16 of cobbled deepslate, 128)
+	shop_add("build", 16 of polished deepslate, 128)
+	shop_add("build", 16 of deepslate bricks, 128)
+	shop_add("build", 16 of cracked deepslate bricks, 128)
+	shop_add("build", 16 of deepslate tiles, 128)
+	shop_add("build", 16 of cracked deepslate tiles, 128)
+	shop_add("build", 16 of chiseled deepslate, 128)
+	shop_add("build", 16 of blackstone, 128)
+	shop_add("build", 16 of polished blackstone, 128)
+	shop_add("build", 16 of chiseled polished blackstone, 128)
+	shop_add("build", 16 of polished blackstone bricks, 128)
+	shop_add("build", 16 of cracked polished blackstone bricks, 128)
+	shop_add("build", 16 of calcite, 128)
+	shop_add("build", 16 of tuff, 128)
+	shop_add("build", 16 of dripstone block, 128)
+	shop_add("build", 16 of dirt, 64)
+	shop_add("build", 16 of grass block, 128)
+	shop_add("build", 16 of coarse dirt, 128)
+	shop_add("build", 16 of rooted dirt, 128)
+	shop_add("build", 16 of sand, 64)
+	shop_add("build", 16 of red sand, 64)
+	shop_add("build", 16 of gravel, 64)
+	shop_add("build", 16 of sandstone, 128)
+	shop_add("build", 16 of chiseled sandstone, 128)
+	shop_add("build", 16 of cut sandstone, 128)
+	
+	
+
+	# Decorations
+
+	shop_add("deco", 16 of torches,  128)
+	shop_add("deco", 8 of glowstone,  128)
+	shop_add("deco", 8 of shroomlight,  128)
+	shop_add("deco", 8 of sea lantern,  128)
+	shop_add("deco", 8 of lantern,  128)
+	shop_add("deco", 8 of soul lantern,  128)
+
+	loop all saplings:
+		shop_add("deco", loop-value, 100) 
+
+	loop all leaves:
+		shop_add("deco", 16 of loop-value, 32)
+	
+	shop_add("deco", 16 of bamboo, 64)
+
+	shop_add("deco", 16 of moss block, 64)
+
+	shop_add("deco", 16 of moss carpet, 64)
+
+	loop all flowers:
+		if loop-value is not wither rose:
+			shop_add("deco", loop-value, 64)
+
+
+	shop_add("deco", 16 of vine, 64)
+
+	shop_add("deco", 16 of glow lichen, 64)
+
+	shop_add("deco", 16 of lily pad, 64)
+
+	shop_add("deco", 16 of brown mushroom, 64)
+
+	shop_add("deco", 16 of red mushroom, 64)
+
+	loop all wool:
+		shop_add("deco", 16 of loop-value, 128)
+
+	loop all concrete:
+
+		shop_add("deco", 16 of loop-value, 128)
+		
+
+	loop all concrete:
+		set {_str} to "%loop-value%"
+		replace " concrete" in {_str} with ""
+		set {_glass} to "%{_str}% stained glass" parsed as item
+		shop_add("deco", 16 of {_glass}, 128)
+
+	# Tools
+
+	shop_add("tools", iron sword, 250)
+	loop all iron tools:
+		shop_add("tools", loop-value, 250)
+	shop_add("tools", diamond sword, 500)
+	loop all diamond tools:
+		shop_add("tools", loop-value, 500)
+	shop_add("tools", netherite sword, 1000)
+	loop all netherite tools:
+		shop_add("tools", loop-value, 1000)
+
+	set {_item} to unbreakable netherite pickaxe of efficiency 10 with nbt compound from "{keepNBT:1}" named "%{clr::mainlight}%[ %{clr::main}%&LGOD PICKAXE %{clr::mainlight}%]" with lore "&f", "%{clr::main}%&LSPECIAL"
+	shop_add("tools",{_item}, 1000000)
+
+	set {_item} to unbreakable netherite shovel of efficiency 10 with nbt compound from "{keepNBT:1}" named "%{clr::mainlight}%[ %{clr::main}%&LGOD SHOVEL %{clr::mainlight}%]" with lore "&f", "%{clr::main}%&LSPECIAL"
+	shop_add("tools",{_item}, 1000000)
+
+	set {_item} to unbreakable netherite axe of efficiency 10 with nbt compound from "{keepNBT:1}" named "%{clr::mainlight}%[ %{clr::main}%&LGOD AXE %{clr::mainlight}%]" with lore "&f", "%{clr::main}%&LSPECIAL"
+	shop_add("tools",{_item}, 1000000)
+
+
+	# Misc
+
+	shop_add("misc", hopper, 1000)
+	shop_add("misc", water bucket, 1000)
+	shop_add("misc", bucket, 500)
+	shop_add("misc", sponge, 1000)
+	shop_add("misc", magma block, 1000)
+	shop_add("misc", soul sand, 1000)
+	shop_add("misc", kelp, 1000)
+	shop_add("misc", oak sign, 32)
+	shop_add("misc", ladder, 32)
+	shop_add("misc", crafting table, 32)
+	shop_add("misc", 2 of chest, 128)
+	shop_add("misc", ender chest, 1000)
+	shop_add("misc", stonecutter, 128)
+	shop_add("misc", composter, 32)
+	shop_add("misc", barrel, 32)
+	shop_add("misc", 6 of ice, 500)
+	shop_add("misc", 6 of packed ice, 4500)
+	shop_add("misc", 6 of blue ice, 40000)
+	shop_add("misc", 1 water bottle, 10)
+
+	# Special
+
+
+	shop_addToken("special", {crates::rare::key}, 400)
+	shop_addToken("special", {crates::epic::key}, 3000)
+	shop_addToken("special", {crates::legendary::key}, 15000)
+	shop_addToken("special", {crates::pets::key}, 100000)
+
+	set {_item} to getSellWand(1, 250)
+	shop_addToken("special", {_item}, 10000)
+	set {_item} to getSellWand(1, 500)
+	shop_addToken("special", {_item}, 20000)
+
+	set {_item} to getSellWand(1.5, 150)
+	shop_addToken("special", {_item}, 50000)
+	set {_item} to getSellWand(1.5, 500)
+	shop_addToken("special", {_item}, 100000)
+
+	set {_item} to getSellWand(2, 150)
+	shop_addToken("special", {_item}, 150000)
+	set {_item} to getSellWand(2, 500)
+	shop_addToken("special", {_item}, 300000)
+
+	shop_addToken("special", {farming::items::wheat::seed}, 50)
+	shop_addToken("special", {farming::items::potato::seed} , 1000)
+	shop_addToken("special", {farming::items::carrot::seed}, 10000)
+	shop_addToken("special", {farming::items::beetroot::seed}, 100000)
+
+	shop_addGen("gens", "dirt", 10)
+
+	set {_gens} to API.getGeneratorList()
+	loop {_gens}.size() - 1 times:
+		set {_id} to {_gens}.get(loop-number).getId()
+		shop_addGen("gens", {_id}, API.totalCostOfGen({_id}) * 1.15)	
+

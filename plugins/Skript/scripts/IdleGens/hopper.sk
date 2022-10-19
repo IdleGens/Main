@@ -1,0 +1,22 @@
+on load:
+	set {-maxamtofhoppers} to 20
+	set {-plotsworld} to "IdleGens"
+
+on block place:    
+	if event-block is not hopper:
+		stop
+
+	if event-world is not {-plotsworld}:
+		stop        
+
+	set {_tiles::*} to tile entities of chunk at event-block
+	loop {_tiles::*}:
+		if loop-value is a hopper:
+			add 1 to {_hopper}
+
+	if {_hopper} > {-maxamtofhoppers}:
+		send action bar "&aMax hoppers in chunk" to player
+		cancel event
+		stop
+
+	send action bar "&aYou are allowed to place &e%{-maxamtofhoppers} - {_hopper}% &amore hoppers in this chunk." to player

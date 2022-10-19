@@ -1,0 +1,128 @@
+fisherman:
+  location: hub, 27.457, 68.000, -22.515
+  lines:
+  - '&#16ff6f&lFISHERMAN'
+  - '{empty}'
+  - '&7For all your &nfishing&7 needs!'
+rarecrate:
+  location: hub, -5.497, 69.625, -14.504
+  lines:
+  - '&#4c41e0[ &lRARE CRATE &#4c41e0]'
+  - '{empty}'
+  - '&#4c41e0• &fLeft Click to see Drops &#4c41e0•'
+  - '&#4c41e0• &fRight click with key to open&#4c41e0 •'
+  - '{empty}'
+  - '&fBuy @ &#4c41e0/buy'
+  - '{empty}'
+  - 'ICON: blue_wool'
+legendarycrate:
+  location: hub, 0.535, 69.625, -15.502
+  lines:
+  - '&#ed9e37[ &lLEGENDARY CRATE &#ed9e37]'
+  - '{empty}'
+  - '&#ed9e37• &fLeft Click to see Drops &#ed9e37•'
+  - '&#ed9e37• &fRight click with key to open&#ed9e37 •'
+  - '{empty}'
+  - '&fBuy @ &#ed9e37/buy'
+  - '{empty}'
+  - 'ICON: orange_wool'
+welcome:
+  location: hub, -8.582, 68.000, 0.464
+  lines:
+  - '&#fff9deWelcome to &#ffdb4a&lIDLEGENS'
+  - '{empty}'
+  - '&#fff9deDo &#ffeca1/start &#fff9deto begin'
+  - '&#fff9deDo &#ffeca1/discord &#fff9deto get news & updates'
+  - '&#fff9deDo &#ffeca1/buy &#fff9deto support the server'
+  - '{empty}'
+  - '&#fff9de&nDon''t&#ffeca1 spam or swear'
+  - '&#fff9deMake sure to &#ffeca1have fun!'
+  - ICON:yellow_wool
+start:
+  location: hub, -11.505, 68.000, 3.529
+  lines:
+  - '&#ffdb4a&lSTART'
+  - '{empty}'
+  - '&#fff9deClick me to start!'
+petscrate:
+  location: hub, 12.467, 69.625, -10.491
+  lines:
+  - '&#f5c9e1[ &lPETS CRATE &#f5c9e1]'
+  - '{empty}'
+  - '&#f5c9e1• &fLeft click to see items &#f5c9e1•'
+  - '&#f5c9e1• &fRight click with key to open &#f5c9e1•'
+  - '{empty}'
+  - '&fBuy @ &#f5c9e1/buy'
+  - '{empty}'
+  - 'ICON: white_wool'
+epiccrate:
+  location: hub, 6.479, 69.625, -14.517
+  lines:
+  - '&#6e14b3[ &lEPIC CRATE &#6e14b3]'
+  - '{empty}'
+  - '&#6e14b3• &fLeft Click to see Drops &#6e14b3•'
+  - '&#6e14b3• &fRight click with key to open &#6e14b3•'
+  - '{empty}'
+  - '&fBuy @ &#6e14b3/buy'
+  - '{empty}'
+  - 'ICON: purple_wool'
+crates:
+  location: hub, 0.506, 69.000, -7.556
+  lines:
+  - ICON:yellow_shulker_box
+  - '{empty}'
+  - '&#ffdb4a&lCRATES'
+  - '{empty}'
+  - '&#fff9deOpen crates here to get &#ffeca1&nspecial items and pets'
+  - '&#fff9deGet keys by &#ffeca1&n/shop in the misc section'
+  - '&#fff9deGet even more keys by &#ffeca1&nleveling up!'
+  - '{empty}'
+  - ICON:TRIPWIRE_HOOK
+mines:
+  location: hub, -44.525, 54.000, -28.512
+  lines:
+  - ICON:diamond_pickaxe
+  - '&9&lMINES'
+  - '&fGo to the mines with &9/mines'
+miner:
+  location: hub, 2.531, 68.000, 10.463
+  lines:
+  - '&#ffdb4a&lMINER'
+  - '{empty}'
+  - '&#fff9deAccess the mines with &#ffeca1&n/mine'
+topcoin:
+  location: hub, -2.931, 71.292, 8.692
+  lines:
+  - '&e&LTOP COINS'
+  - '{empty}'
+  - §71. §ezelde §6⛁§e2.3T
+  - §72. §eMrSAM_ §6⛁§e154.01B
+  - §73. §eZuliccAlt §6⛁§e68.93B
+  - §74. §ePinapilz §6⛁§e30.86B
+  - §75. §eBestgrinderever §6⛁§e28.81B
+  - §76. §eMaijinPT §6⛁§e18.06B
+  - §77. §eIvyCypress §6⛁§e17.67B
+  - §78. §eNiceYT §6⛁§e15.03B
+  - §79. §eetex_YT §6⛁§e12.18B
+toplvl:
+  location: hub, 6.005, 71.291, 9.241
+  lines:
+  - '&a&LTOP LEVEL'
+  - '{empty}'
+  - §71. §azelde §a136
+  - §72. §aZuliccAlt §a127
+  - §73. §aGravy_Hands §a126
+  - §74. §aAzad3D §a123
+  - §75. §asportsguy12345 §a123
+  - §76. §aThylacoleo_King §a123
+  - §77. §aMrSAM_ §a122
+  - §78. §aI_Lose §a121
+  - §79. §aNiceYT §a120
+num1:
+  location: IdleGens, -65.528, 102.005, -116.700
+  lines:
+  - 64x
+num2:
+  location: IdleGens, -66.228, 102.005, -116.700
+  lines:
+  - 64x

@@ -1,0 +1,1344 @@
+[
+  {
+	"id": "dirt",
+	"sellValue": 1,
+	"upgradePrice": 50,
+	"upgradeId": "grass",
+	"drop": {
+	  "item": "BROWN_DYE",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>DIRT</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1",
+		"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	},
+	"block": {
+	  "item": "ROOTED_DIRT",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>DIRT GENERATOR</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1",
+		"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Stone",
+		"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>50",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	}
+  },
+  {
+	"id": "grass",
+	"sellValue": 2,
+	"upgradePrice": 250,
+	"upgradeId": "wheat",
+	"drop": {
+	  "item": "FERN",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>GRASS</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>2",
+		"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	},
+	"block": {
+	  "item": "MOSS_BLOCK",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>GRASS GENERATOR</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>2",
+		"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Wheat",
+		"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>250",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	}
+  },
+  {
+	"id": "wheat",
+	"sellValue": 5,
+	"upgradePrice": 1000,
+	"upgradeId": "potato",
+	"drop": {
+	  "item": "WHEAT",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>WHEAT</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>5",
+		"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	},
+	"block": {
+	  "item": "HAY_BLOCK",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>WHEAT GENERATOR</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>5",
+		"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Wheat",
+		"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>1k",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	}
+  },
+  {
+	"id": "potato",
+	"sellValue": 10,
+	"upgradePrice": 5000,
+	"upgradeId": "carrot",
+	"drop": {
+	  "item": "POTATO",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>POTATO</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>10",
+		"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	},
+	"block": {
+	  "item": "YELLOW_CONCRETE",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>POTATO GENERATOR</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>10",
+		"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Carrot",
+		"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>5k",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	}
+  },
+  {
+	"id": "carrot",
+	"sellValue": 25,
+	"upgradePrice": 12000,
+	"upgradeId": "sugar_cane",
+	"drop": {
+	  "item": "CARROT",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>CARROT</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>25",
+		"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	},
+	"block": {
+	  "item": "ORANGE_CONCRETE",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>CARROT GENERATOR</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>25",
+		"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Sugar Cane",
+		"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>12k",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	}
+  },
+  {
+	"id": "sugar_cane",
+	"sellValue": 40,
+	"upgradePrice": 35000,
+	"upgradeId": "melon",
+	"drop": {
+	  "item": "SUGAR_CANE",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>SUGAR CANE</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>40",
+		"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	},
+	"block": {
+	  "item": "LIME_CONCRETE",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>SUGAR CANE GENERATOR</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>40",
+		"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Melon",
+		"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>35k",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	}
+  },
+  {
+	"id": "melon",
+	"sellValue": 60,
+	"upgradePrice": 80000,
+	"upgradeId": "pumpkin",
+	"drop": {
+	  "item": "MELON_SLICE",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>MELON SLICE</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>60",
+		"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	},
+	"block": {
+	  "item": "MELON",
+	  "amount": 1,
+	  "NBT": "{}",
+	  "Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>MELON GENERATOR</bold> <#b3afa1>]",
+	  "Lore": [
+		"",
+		"<i:false><#666356><bold>INFO</bold>:",
+		"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>60",
+		"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Pumpkin",
+		"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>80k",
+		"",
+		"<i:false><#ffdb4a><bold>SPECIAL"
+	  ]
+	}
+  },
+
+  {
+	"id": "pumpkin",
+	"sellValue": 115,
+	"upgradePrice": 95000,
+	"upgradeId": "cactus",
+	"drop": {
+		"item": "PUMPKIN_PIE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>PUMPKIN</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>115",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "PUMPKIN",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>PUMPKIN GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>115",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Apple",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>95k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "apple",
+	"sellValue": 200,
+	"upgradePrice": 105000,
+	"upgradeId": "cactus",
+	"drop": {
+		"item": "APPLE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>APPLE </bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>200",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "RED_CONCRETE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>APPLE GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>200",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Cactus",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>105k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "cactus",
+	"sellValue": 215,
+	"upgradePrice": 115000,
+	"upgradeId": "beetroot",
+	"drop": {
+		"item": "GREEN_DYE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>CACTUS</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>215",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "GREEN_CONCRETE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>CACTUS GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>215",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Beetroot",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>115k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "beetroot",
+	"sellValue": 225,
+	"upgradePrice": 125000,
+	"upgradeId": "flower",
+	"drop": {
+		"item": "BEETROOT",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>BEETROOT</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>225",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "RED_TERRACOTTA",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>BEETROOT GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>225",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Flower",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>125k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "flower",
+	"sellValue": 250,
+	"upgradePrice": 135000,
+	"upgradeId": "brown_mushroom",
+	"drop": {
+		"item": "WHITE_TULIP",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>FLOWER</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>250",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "WHITE_CONCRETE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>FLOWER GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>250",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Brown Mushroom",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>135k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "brown_mushroom",
+	"sellValue": 325,
+	"upgradePrice": 150000,
+	"upgradeId": "red_mushroom",
+	"drop": {
+		"item": "BROWN_MUSHROOM",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>BROWN MUSHROOM</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>325",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "BROWN_MUSHROOM_BLOCK",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>BROWN MUSHROOM GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>325",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Red Mushroom",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>150k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "red_mushroom",
+	"sellValue": 395,
+	"upgradePrice": 160000,
+	"upgradeId": "bamboo",
+	"drop": {
+		"item": "RED_MUSHROOM",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>RED MUSHROOM</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>395",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "RED_MUSHROOM_BLOCK",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>RED MUSHROOM GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>395",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Bamboo",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>160k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  
+  {
+	"id": "bamboo",
+	"sellValue": 455,
+	"upgradePrice": 175000,
+	"upgradeId": "kelp",
+	"drop": {
+		"item": "BAMBOO",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>BAMBOO</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>455",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "LIME_TERRACOTTA",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>BAMBOO GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>455",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>KELP",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>175k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "kelp",
+	"sellValue": 515,
+	"upgradePrice": 200000,
+	"upgradeId": "sweet_berries",
+	"drop": {
+		"item": "KELP",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>KELP</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>515",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "DRIED_KELP_BLOCK",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>KELP GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>515",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Sweet Berries",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>200k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "sweet_berries",
+	"sellValue": 565,
+	"upgradePrice": 225000,
+	"upgradeId": "glow_berries",
+	"drop": {
+		"item": "SWEET_BERRIES",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>SWEET BERRIES</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>565",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "RED_WOOL",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>SWEET BERRIES GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>565",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Glow Berries",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>225k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "glow_berries",
+	"sellValue": 615,
+	"upgradePrice": 255000,
+	"upgradeId": "plank",
+	"drop": {
+		"item": "GLOW_BERRIES",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>GLOW BERRIES</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>615",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "YELLOW_WOOL",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>GLOW BERRIES GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>615",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Plank",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>255k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+
+  {
+	"id": "plank",
+	"sellValue": 715,
+	"upgradePrice": 295000,
+	"upgradeId": "log",
+	"drop": {
+		"item": "OAK_PLANKS",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>PLANKS</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>715",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "STRIPPED_SPRUCE_WOOD",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>PLANKS GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>715",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Log",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>295k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "log",
+	"sellValue": 850,
+	"upgradePrice": 355000,
+	"upgradeId": "cobblestone",
+	"drop": {
+		"item": "OAK_LOG",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>LOG</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>850",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "OAK_WOOD",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>LOG GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>850",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Cobblestone",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>355k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "cobblestone",
+	"sellValue": 1000,
+	"upgradePrice": 485000,
+	"upgradeId": "stone",
+	"drop": {
+		"item": "COBBLESTONE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>COBBLESTONE</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "ANDESITE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>COBBLESTONE GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Stone",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>485k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "stone",
+	"sellValue": 1200,
+	"upgradePrice": 600000,
+	"upgradeId": "deepslate",
+	"drop": {
+		"item": "STONE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>STONE</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1.2k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "POLISHED_ANDESITE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>STONE GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1.2k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Deepslate",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>600k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "deepslate",
+	"sellValue": 1500,
+	"upgradePrice": 750000,
+	"upgradeId": "charcoal",
+	"drop": {
+		"item": "DEEPSLATE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>DEEPSLATE</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1.5k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "POLISHED_DEEPSLATE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>DEEPSLATE GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1.5k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Charcoal",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>750k",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "charcoal",
+	"sellValue": 1950,
+	"upgradePrice": 1000000,
+	"upgradeId": "coal",
+	"drop": {
+		"item": "CHARCOAL",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>CHARCOAL</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1.95k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "COAL_ORE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>CHARCOAL GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>1.95k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Coal",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>1.35m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "coal",
+	"sellValue": 2500,
+	"upgradePrice": 1350000,
+	"upgradeId": "raw_iron",
+	"drop": {
+		"item": "COAL",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>COAL</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>2.5k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "COAL_BLOCK",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>COAL GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>2.5k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Raw Iron",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>1.35m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "raw_iron",
+	"sellValue": 3500,
+	"upgradePrice": 2000000,
+	"upgradeId": "iron",
+	"drop": {
+		"item": "RAW_IRON",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>RAW IRON</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>3.5k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "IRON_ORE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>RAW IRON GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>3.5k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Iron",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>2m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "iron",
+	"sellValue": 5000,
+	"upgradePrice": 3000000,
+	"upgradeId": "raw_copper",
+	"drop": {
+		"item": "IRON_INGOT",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>IRON</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>5k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "IRON_BLOCK",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>IRON GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>5k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Raw Copper",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>3m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "raw_copper",
+	"sellValue": 8000,
+	"upgradePrice": 5000000,
+	"upgradeId": "copper",
+	"drop": {
+		"item": "RAW_COPPER",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>RAW COPPER</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>8k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "COPPER_ORE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>RAW COPPER GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>8k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Copper",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>5m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "copper",
+	"sellValue": 10000,
+	"upgradePrice": 8500000,
+	"upgradeId": "amethyst",
+	"drop": {
+		"item": "COPPER_INGOT",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>COPPER</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>10k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "WAXED_COPPER_BLOCK",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>COPPER GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>10k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Amethyst",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>8.5m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "amethyst",
+	"sellValue": 13000,
+	"upgradePrice": 10000000,
+	"upgradeId": "raw_gold",
+	"drop": {
+		"item": "AMETHYST_SHARD",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>AMETHYST</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>13k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "AMETHYST_BLOCK",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>AMETHYST GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>13k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Raw Gold",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>10m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "raw_gold",
+	"sellValue": 20000,
+	"upgradePrice": 35000000,
+	"upgradeId": "gold",
+	"drop": {
+		"item": "RAW_GOLD",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>RAW GOLD</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>20k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "GOLD_ORE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>RAW GOLD GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>20k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Gold",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>35m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "gold",
+	"sellValue": 30000,
+	"upgradePrice": 60000000,
+	"upgradeId": "lapis",
+	"drop": {
+		"item": "GOLD_INGOT",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>GOLD</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>30k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "GOLD_BLOCK",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>GOLD GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>30k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Lapis",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>60m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "lapis",
+	"sellValue": 40000,
+	"upgradePrice": 100000000,
+	"upgradeId": "redstone",
+	"drop": {
+		"item": "LAPIS_LAZULI",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>LAPIS</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>40k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "LAPIS_ORE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>LAPIS GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>40k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Redstone",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>100m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "redstone",
+	"sellValue": 60000,
+	"upgradePrice": 200000000,
+	"upgradeId": "emerald",
+	"drop": {
+		"item": "REDSTONE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>REDSTONE</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>60k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "REDSTONE_ORE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>REDSTONE GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>60k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Emerald",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>200m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "emerald",
+	"sellValue": 100000,
+	"upgradePrice": 500000000,
+	"upgradeId": "diamond",
+	"drop": {
+		"item": "EMERALD",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>EMERALD</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>100k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "EMERALD_ORE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>EMERALD GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>100k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Diamond",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>500m",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "diamond",
+	"sellValue": 150000,
+	"upgradePrice": 1000000000,
+	"upgradeId": "obsidian",
+	"drop": {
+		"item": "DIAMOND",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>DIAMOND</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>150k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "DIAMOND_ORE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>DIAMOND GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>150k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Obsidian",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>1b",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "obsidian",
+	"sellValue": 210000,
+	"upgradePrice": 2000000000,
+	"upgradeId": "netherrack",
+	"drop": {
+		"item": "BLACK_DYE",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>OBSIDIAN</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>210k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "CRYING_OBSIDIAN",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>OBSIDIAN GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>210k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>Netherrack",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>2b",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  },
+  {
+	"id": "netherrack",
+	"sellValue": 290000,
+	"upgradePrice": 3000000000,
+	"upgradeId": "none",
+	"drop": {
+		"item": "NETHERRACK",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>NETHERRACK</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>290k",
+			"<i:false><#666356> • <#b3afa1>Sell with <#fff9de>/sell",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+	},
+	"block": {
+		"item": "RED_NETHER_BRICKS",
+		"amount": 1,
+		"NBT": "{}",
+		"Name": "<i:false><#b3afa1>[ <#ffdb4a><bold>NETHERRACK GENERATOR</bold> <#b3afa1>]",
+		"Lore": [
+			"",
+			"<i:false><#666356><bold>INFO</bold>:",
+			"<i:false><#666356> • <#b3afa1>Sell Value <gold>⛃<yellow>290k",
+			"<i:false><#666356> • <#b3afa1>Upgrade To <#fff9de>None",
+			"<i:false><#666356> • <#b3afa1>Upgrade Price <gold>⛃<yellow>5b",
+			"",
+			"<i:false><#ffdb4a><bold>SPECIAL"
+		]
+  	}
+  }
+]

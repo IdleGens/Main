@@ -1,0 +1,65 @@
+on load:
+	wait 5 ticks
+	loop all players:
+		display_loadScore(loop-player)
+
+function display_loadScore(p: player):
+
+	set {_u} to {_p}'s uuid
+
+	if {-data::%{_u}%::multi} is not set:
+		set {-data::%{_u}%::multi} to 1
+
+	set {_multi} to {-data::%{_u}%::multi}
+
+	set {_level} to {-data::%{_u}%::level}
+	set {_xp} to {-data::%{_u}%::xp}
+	set {_mxp} to getMaxXP({_p})
+	set {_perc} to ceil(({_xp} / {_mxp}) * 10)
+	set {_str} to "%{clr::gray}%["
+
+	loop {_perc} times:
+		set {_str} to "%{_str}%%{clr::main}%&l|"
+	loop 10 - {_perc} times:
+		set {_str} to "%{_str}%%{clr::grayLight}%&l|"
+	set {_str} to "%{_str}%%{clr::gray}%]"
+
+
+	set {_maxGen} to placeholder "transmitgens_get_maxGenAmount" from {_p}
+	set {_currGen} to placeholder "transmitgens_get_genAmount" from {_p}
+
+	set title of {_p}'s scoreboard to "%{clr::mainLight}%[%{clr::main}%&l IDLEGENS %{clr::mainLight}%] %{clr::graylight}%(S5)"
+	set line 15 of {_p}'s scoreboard to "&f"
+	#set line 14 of {_p}'s scoreboard to "&7"
+	set line 14 of {_p}'s scoreboard to " %{clr::main}%&lPLAYER"
+	if {-data::%{_u}%::prestige} is set:
+		set line 13 of {_p}'s scoreboard to "  %{clr::gray}%• %{clr::mainLight}%Prestige: %{clr::main}%%{-data::%{_u}%::prestige}%"
+	set line 12 of {_p}'s scoreboard to "  %{clr::gray}%• %{clr::mainLight}%Level: %{clr::main}%%{_level}% %{_str}%"
+	set line 10 of {_p}'s scoreboard to "  %{clr::gray}%• %{clr::mainLight}%Coins: &6⛃&e%nFormat({_p}'s balance)%"
+	set line 9 of {_p}'s scoreboard to "  %{clr::gray}%• %{clr::mainLight}%Tokens: &5◎&d%nFormat({-data::%{_u}%::crystal} ? 0)%"
+	set line 8 of {_p}'s scoreboard to "  %{clr::gray}%• %{clr::mainLight}%Multi: %{clr::white}%%{_multi}%x"
+	set line 7 of {_p}'s scoreboard to "  %{clr::gray}%• %{clr::mainLight}%Gens: %{clr::white}%%{_currGen}%%{clr::mainLight}% / %{clr::white}%%{_maxGen}%"
+	
+	set line 6 of {_p}'s scoreboard to "&f"
+	set line 5 of {_p}'s scoreboard to " %{clr::main}%&lSERVER"
+	set line 4 of {_p}'s scoreboard to "  %{clr::gray}%• %{clr::mainLight}%Online: %{clr::white}%%size of all players%"
+	set line 3 of {_p}'s scoreboard to "  %{clr::gray}%• %{clr::mainLight}%Store: %{clr::white}%/buy"
+	set line 2 of {_p}'s scoreboard to "&f"
+
+
+on join:
+	wait 5 ticks
+	loop all players:
+		display_loadScore(loop-player)
+
+every 5 ticks:
+	loop all players:
+		display_loadScore(loop-player)
+
+function nFormat(n: number) :: text:
+	set {_data} to "TC,42|DU,39|UD,36|DC,33|NO,30|OT,27|SP,24|SX,21|QT,18|Q,15|T,12|B,9|M,6|k,3"
+	loop split {_data} at "|":
+		set {_s::*} to split loop-value at ","
+		{_n} >= 10 ^ {_s::2} parsed as number
+		return "%{_n} / 10 ^ {_s::2} parsed as number%%{_s::1}%"
+	return "%{_n}%"

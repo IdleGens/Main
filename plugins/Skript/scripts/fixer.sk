@@ -1,0 +1,2 @@
+every 15 minutes:
+    execute console command "spark heapsummary"

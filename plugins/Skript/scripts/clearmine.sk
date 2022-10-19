@@ -1,0 +1,9 @@
+command clearmines:
+    permission: *
+    trigger:
+        loop all players:
+            if loop-player's world is "mining":
+                send "&cSorry, we had to remove you from the mine for a moment, do /mine to go back!" to loop-player
+                make loop-player execute command "spawn"
+                add 1 to {_u}
+            send "&bMoved %{_u}%&b players." to player

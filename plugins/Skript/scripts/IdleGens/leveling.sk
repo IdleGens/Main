@@ -1,0 +1,65 @@
+
+function addXP(p: player, add: number):
+	set {_xp} to {-data::%{_p}'s uuid%::xp}
+	set {_level} to {-data::%{_p}'s uuid%::level}
+	set {_mxp} to getMaxXP({_p})
+
+	display_loadScore({_p})
+
+	if {_xp} + {_add} >= {_mxp}:
+		add 1 to {-data::%{_p}'s uuid%::level}
+		set {-data::%{_p}'s uuid%::xp} to 0
+		set {_level} to {-data::%{_p}'s uuid%::level}
+		if mod({_level}, 5) = 0:
+			give {_p} 3 of {crates::rare::key}
+		if mod({_level}, 10) = 0:
+			give {_p} 1 of {crates::epic::key}
+		if mod({_level}, 25) = 0:
+			give {_p} 1 of {crates::legendary::key}
+		if mod({_level}, 50) = 0:
+			give {_p} 1 of {crates::pets::key}
+		if mod({_level}, 2) = 0:
+			give {_p} {crates::rare::key}
+		if ({_xp} + {_add}) - {_mxp} > 0:
+			addXP({_p}, ({_xp} + {_add}) - {_mxp})
+		send title "%{clr::main}%&LLEVEL UP" with subtitle "%{clr::mainLight}%Level %{-data::%{_p}'s uuid%::level}%" to {_p}
+		play sound "ui.toast.challenge_complete" with pitch 3 to {_p}
+
+	else:
+		add {_add} to {-data::%{_p}'s uuid%::xp}
+
+
+function getMaxXP(p: player) :: number:
+	set {_lvl} to {-data::%{_p}'s uuid%::level} ? 1
+	set {_prestige} to {-data::%{_p}'s uuid%::_prestige} ? 0
+	return ((1.2)^({_lvl} + ({_prestige} * 10))) + 10
+
+
+function getPetMaxXP(lvl: number, rarity: number) :: number:
+	return (({_lvl}*(0.4 * ({_rarity} * 1.2)))+3.5)^2.5 + 25
+
+
+
+function addPetXP(p: player, add: number):
+	set {_nbt} to nbt compound of {-data::%{_p}'s uuid%::pet}
+	set {_xp} to thisNumber(int tag "tag;PetXP" of {_nbt})
+	set {_level} to thisNumber(int tag "tag;PetLVL" of {_nbt})
+	set {_rarity} to thisNumber(int tag "tag;PetRARITY" of {_nbt})
+	set {_mxp} to getPetMaxXP({_level},{_rarity})
+
+	display_loadScore({_p})
+	if {_level} < 100:
+		if {_xp} + {_add} >= {_mxp}:
+			set tag "tag;PetLVL" of {_nbt} to {_level} + 1
+			set tag "tag;PetXP" of {_nbt} to 0
+			send formatted "%{clr::mainLight}% [ %{clr::main}%&LPET LEVEL UP %{clr::mainLight}%] %{clr::mainLight}%Level %{_level} + 1%" to {_p}
+			play sound "entity.player.levelup" with pitch 3 to {_p}
+			if ({_xp} + {_add}) - {_mxp} > 0:
+				set {-data::%{_p}'s uuid%::pet} to item from nbt {_nbt}
+				addPetXP({_p}, ({_xp} + {_add}) - {_mxp})
+				stop
+			pet_loadBuffs({_p})
+		else:
+			set tag "tag;PetXP" of {_nbt} to {_xp} + {_add}
+
+	set {-data::%{_p}'s uuid%::pet} to item from nbt {_nbt}

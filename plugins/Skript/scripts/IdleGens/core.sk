@@ -1,0 +1,111 @@
+on load:
+	set {clr::main} to "<##ffdb4a>"
+	set {clr::mainLight} to "<##ffeca1>"
+	set {clr::white} to "<##fff9de>"
+	set {clr::gray} to "<##666356>"
+	set {clr::grayLight} to "<##b3afa1>"
+	set {clr::error} to "<##ad1111>"
+	set {clr::errorGray} to "<##9c3535>"
+	set {clr::member} to "<##e454f7>"
+
+	set {clr::special} to ""
+
+	set {_player} to "MHF_arrowright" parsed as offline player
+	set {arrow} to {_player}'s skull
+
+
+
+function dash(color: string) :: string:
+	return "%{_color}%&m                                 "
+
+function title() :: string:
+	return "%{clr::mainLight}%[%{clr::main}%&lIDLEGENS%{clr::main}%%{clr::mainLight}%]"
+
+function errorSound(p: player):
+	play sound "entity.enderman.death" with pitch 2 to {_p}
+
+function getRarity(r: number) :: string:
+	if {_r} is 1:
+		return "Common"
+	else if {_r} is 2:
+		return "Uncommon"
+	else if {_r} is 3:
+		return "Rare"
+	else if {_r} is 4:
+		return "Epic"
+	else if {_r} is 5:
+		return "Legendary"
+
+# Chat Core
+
+on join:
+	wait 4 ticks
+	teleport player to {spawn}
+
+on portal creation:
+	cancel event
+on portal enter:
+	teleport player to {spawn}
+command /genlist:
+	aliases: gens
+	trigger:
+		make player execute "/tg list"
+
+command /spawn:
+	trigger:
+		play sound "entity.enderman.teleport"
+		teleport player to {spawn}
+
+on join:
+	set join message to "%{clr::mainLight}%[%{clr::main}%&lIDLEGENS%{clr::main}%%{clr::mainLight}%] » %{clr::white}%%player's display name% has joined!"
+
+on quit:
+	set quit message to ""
+
+on chat:
+	set {_braceClr} to "%{clr::member}%"
+	
+
+	if player's group is "memberplus":
+		set {_braceClr} to "&x&9&e&4&e&d&4"
+	if player's group is "vip":
+		set {_braceClr} to "&x&6&f&f&7&9&4"
+	if player's group is "mvp":
+		set {_braceClr} to "&x&6&f&7&f&f&7"
+	if player's group is "legend":
+		set {_braceClr} to "&x&e&d&9&e&3&7"
+	if player's group is "helper":
+		set {_braceClr} to "&x&f&f&d&7&6&9"
+	if player's group is "mod":
+		set {_braceClr} to "&x&3&c&e&6&6&0"
+	if player's group is "admin":
+		set {_braceClr} to "&x&f&5&5&1&5&1"
+	if player's group is "owner":
+		set {_braceClr} to "%{clr::main}%"
+	if player's group is "manager":
+		set {_braceClr} to "%{clr::main}%"
+
+	set {_lvltag} to "%{clr::gray}%[%{_braceClr}%%{-data::%player's uuid%::level}%★%{clr::gray}%]"
+
+	if player's group is not "default":
+	
+		if player has permission "color.chat":
+			set {_message} to "%colored message%"
+		else:
+			set {_message} to "%uncolored message%"
+
+		set chat format to "%{_lvltag}% %player's prefix% %player's display name% » %{clr::white}%%{_message}%"
+	else:
+		set chat format to "%{_lvltag}% %player's prefix% %player's display name% %{clr::member}%» %message%"
+
+on death:
+	set death message to ""
+
+
+command /me <text>:
+	trigger:
+		send "* %player% %arg-1%"
+		
+command /minecraft:me <text>:
+	trigger:
+		send "* %player% %arg-1%"

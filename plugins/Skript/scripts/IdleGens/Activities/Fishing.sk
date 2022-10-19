@@ -1,0 +1,184 @@
+on load:
+	delete {fish::*}
+	add cod named "&fCod" with lore "&7 " and "&7bland fish." and "&7 " and "&f&lCOMMON" to {fish::common::*}
+	add salmon named "&fSalmon" with lore "&7 " and "&7bland fish." and "&7 " and "&f&lCOMMON" to {fish::common::*}
+	add pufferfish named "<##4c41e0>Pufferfish" with lore "&7 " and "&7tastes bad, but its rare." and "&7 " and "<##4c41e0>&lRARE" to {fish::rare::*}
+	add tropical fish named "<##ed9e37>Clownfish" with lore "&7 " and "&7fairly rare fish, people love it!" and "&7 " and "<##ed9e37>&lLEGENDARY" to {fish::legendary::*}
+
+on fish:
+	if event-fishingstate is bite:
+		send title "&a&lREEL IN!" with subtitle "To catch the fish!" to player
+		play sound "block.note_block.flute" to player
+	if event-fishingstate is caught fish:
+		set {_c} to a random integer between 1 and 11
+		if {_c} is between 1 and 5:
+			set {_f} to a random element out of {fish::common::*}
+			set item of caught entity to {_f}
+		if {_c} is between 6 and 8:
+			set {_f} to a random element out of {fish::rare::*}
+			set item of caught entity to {_f}
+		if {_c} is 9:
+			set item of caught entity to purple dye named "&a&n&mTOKENZ!"
+		if {_c} is 10:
+			set {_f} to a random element out of {fish::legendary::*}
+			set item of caught entity to {_f}
+		if {_c} is not 11:
+			if {-tempdata::%player's uuid%::petID} is "turtle":
+				set {_i} to a random integer between 1 and 100
+				set {_power} to {-tempdata::%player's uuid%::turtleFishing}
+				if {_i} is between 1 and {_power}:
+					wait 2 ticks
+					add {_f} to player's inventory
+					send formatted "%{clr::main}%&LTURTLE PET%{clr::mainlight}% You got an extra fish because you had your turtle pet equiped!" to player
+		if {_c} is 11:
+			chance of 75%:
+				set {_r} to a random integer between 1 and 3
+				chance of 50%:
+					set {_f} to getPet("shark", {_r})
+				else:
+					set {_f} to getPet("turtle", {_r})
+			else:
+				set {_r} to a random integer between 4 and 5
+				chance of 50%:
+					set {_f} to getPet("shark", {_r})
+				else:
+					set {_f} to getPet("turtle", {_r})
+			send "<##16ff6f>&lFISHING &fPET DROP!" to player
+			set item of caught entity to {_f}
+on pickup:
+	if name of event-item is "&a&n&mTOKENZ!":
+		set {_amount} to a random integer between 35 and 50
+		add {_amount} to {-data::%player's uuid%::crystal}
+		send "<##16ff6f>&lFISHING &fYou found &5◎&d%{_amount}%&f tokens while fishing!"
+		play sound "block.note_block.chime" for player
+		wait 2 ticks
+		remove purple dye named "&a&n&mTOKENZ!" from player's inventory
+
+on drop:
+	if event-item is purple dye named "&a&n&mTOKENZ!":
+		cancel event 
+		wait 1 tick
+		remove purple dye named "&a&n&mTOKENZ!" from player's inventory
+
+on right click on entity:
+	if name of entity is "Fisherman":
+		if {-data::%player's uuid%::fishing} is not set:
+			set {-data::%player's uuid%::fishing} to "talking"
+			send "<##16ff6f>&lFISHERMAN &fHello there! I see you're new to fishing," to player
+			play sound "entity.villager.celebrate" for player
+			wait 2 seconds
+			send "<##16ff6f>&lFISHERMAN &fHere, take this fishing rod, it'll get you started." to player
+			play sound "entity.villager.celebrate" for player
+			give player unbreakable fishing rod named "<##16ff6f>&lFISHERMAN'S FISHING ROD" with lore "&7 " and "&7Not too shabby!" and "&7 "
+			wait 1 second
+			set {-data::%player's uuid%::fishing} to "done"
+		if {-data::%player's uuid%::fishing} is "talking":
+			stop
+		create a gui with virtual chest with 3 rows named "Fisherman":
+			loop 27 times:
+				set {_u} to loop-number - 1
+				format gui slot {_u} with gray stained glass pane named "&7 "
+			format gui slot 11 with shiny fishing rod named "<##16ff6f>&lFISHING RODS" with lore "&7 " and "&7Buy better fishing rods!" and "&7 " and "<##00de55>Click to open menu!":
+				fisherman_buyMenu(player)
+			format gui slot 13 with shiny emerald named "<##16ff6f>&lSELL" with lore "&7 " and "<##ed9e37>&lLEGENDARY &7- &6⛃&e5.75k" and "<##4c41e0>&lRARE &7- &6⛃&e1.25k" and "&f&lCOMMON &7- &6⛃&e550" and "&7 " and "<##00de55>Click to sell!":
+				set {_a} to 0
+				loop all items in the player's inventory:
+					if loop-item is a tropical fish:
+						set {_l} to item amount of loop-item
+						set {_i} to loop-item
+						loop {_l} times:
+							add 5750 to player's balance
+							remove {_i} from player's inventory
+							add 5750 to {_a}
+					if loop-item is a dried kelp or cod or salmon:
+						set {_l} to item amount of loop-item
+						set {_i} to loop-item
+						loop {_l} times:
+							add 550 to player's balance
+							remove {_i} from player's inventory
+							add 550 to {_a}
+					if loop-item is a pufferfish:
+						set {_l} to item amount of loop-item
+						set {_i} to loop-item
+						loop {_l} times:
+							add 1025 to player's balance
+							remove {_i} from player's inventory
+							add 1025 to {_a}
+				close player's inventory
+				if {_a} is more than 0:
+					send "<##16ff6f>&lFISHING &fAll fish sold for &6⛃&e%{_a}%"
+					play sound "block.note_block.chime" for player
+				else:
+					send "<##16ff6f>&lFISHING &fThere are no fishing items in your inventory!"
+					play sound "entity.villager.no" for player
+			format gui slot 15 with {turtle_head} named "<##16ff6f>&lFISHING PETS" with lore "&7 " and "&7View all fishing pets" and "&7 " and "&8Click to open pets menu":
+				fisherman_petMenu(player)	
+		open last gui to player
+
+function fisherman_buyMenu(p: player):
+	create a gui with virtual chest with 3 rows named "Fishing Rods":
+		loop 27 times:
+			set {_u} to loop-number - 1
+			format gui slot {_u} with gray stained glass pane named "&7 "
+		format gui slot 10 with unbreakable fishing rod named "<##16ff6f>&lBASIC ROD" with lore "&7 " and "&7basic fishing rod," and "&7kinda sucks." and "&7 " and "<##24a3e0>&lCOST" and "&6⛃&e100" and "&7 ":
+			if player's balance is more than 99:
+				play sound "block.note_block.flute" for player
+				give player unbreakable fishing rod named "<##16ff6f>&lBASIC ROD" with lore "&7 " and "&7basic fishing rod," and "&7kinda sucks." and "&7 "
+				remove 100 from player's balance
+		format gui slot 11 with unbreakable fishing rod of lure 1 named "<##16ff6f>&lFINE ROD" with lore "&7 " and "&7decent fishing rod," and "&7not bad." and "&7 " and "<##24a3e0>&lCOST" and "&6⛃&e1000" and "<##ed9e37>x1 Clownfish" and "&7 ":
+			if player's balance is more than 999:
+				if player's inventory contains 1 tropical fish:
+					play sound "block.note_block.flute" for player
+					give player unbreakable fishing rod of lure 1 named "<##16ff6f>&lFINE ROD" with lore "&7 " and "&7decent fishing rod," and "&7not bad." and "&7 "
+					remove 1000 from player's balance
+					remove 1 tropical fish from player's inventory
+		format gui slot 12 with unbreakable fishing rod of lure 2 named "<##16ff6f>&lCOOL ROD" with lore "&7 " and "&7cool fishing rod," and "&77.5/10" and "&7 " and "<##24a3e0>&lCOST" and "&6⛃&e3000" and "<##ed9e37>x3 Clownfish" and "&7 ":
+			if player's balance is more than 2999:
+				if player's inventory contains 3 tropical fish:
+					play sound "block.note_block.flute" for player
+					give player unbreakable fishing rod of lure 2 named "<##16ff6f>&lCOOL ROD" with lore "&7 " and "&7cool fishing rod," and "&77.5/10" and "&7 "
+					remove 3000 from player's balance
+					remove 3 tropical fish from player's inventory
+		format gui slot 13 with unbreakable fishing rod of lure 3 named "<##16ff6f>&lGOOD ROD" with lore "&7 " and "&7good fishing rod," and "&7i like!" and "&7 " and "<##24a3e0>&lCOST" and "&6⛃&e6000" and "<##ed9e37>x7 Clownfish" and "&7 ":
+			if player's balance is more than 5999:
+				if player's inventory contains 7 tropical fish:
+					play sound "block.note_block.flute" for player
+					give player unbreakable fishing rod of lure 3 named "<##16ff6f>&lGOOD ROD" with lore "&7 " and "&7good fishing rod," and "&7i like!" and "&7 "
+					remove 6000 from player's balance
+					remove 7 tropical fish from player's inventory
+		format gui slot 14 with unbreakable fishing rod of lure 4 named "<##16ff6f>&lGREAT ROD" with lore "&7 " and "&7great fishing rod," and "&7i like!!!" and "&7 " and "<##24a3e0>&lCOST" and "&6⛃&e12000" and "<##ed9e37>x11 Clownfish" and "&7 ":
+			if player's balance is more than 11999:
+				if player's inventory contains 11 tropical fish:
+					play sound "block.note_block.flute" for player
+					give player unbreakable fishing rod of lure 4 named "<##16ff6f>&lGREAT ROD" with lore "&7 " and "&7good fishing rod," and "&7i like!" and "&7 "
+					remove 6000 from player's balance
+					remove 7 tropical fish from player's inventory
+		format gui slot 15 and 16 with bedrock named "&4Coming Soon" with lore "&7 " and "&7fishing update 3.0???" and "&7 "
+	open last gui to {_p}
+
+function fisherman_petMenu(p: player):
+	create a gui with virtual chest with 3 rows named "Fishing Pets":
+		loop 27 times:
+			set {_u} to loop-number - 1
+			format gui slot {_u} with gray stained glass pane named "&7 "	
+		format gui slot 12 with {turtle_head} named "%{clr::main}%&LTURTLE PET" with lore "&7 " and "%{clr::mainlight}%&lABILITY" and "%{clr::white}%When you fish, this pet has a %{clr::mainlight}%20-95%%" and "%{clr::white}%chance to give you extra fish when" and "%{clr::white}%you catch a fish!" and "&7 " and "%{clr::mainlight}%&lOBTAINED FROM" and "%{clr::white}%Rare drop from fishing" and "&7 "
+		format gui slot 14 with {shark_head} named "%{clr::main}%&LSHARK PET" with lore "&7 " and "%{clr::mainlight}%&lABILITY" and "%{clr::white}%Fishes for you every 5 minutes," and "%{clr::white}%and has a %{clr::mainlight}%30-100%% %{clr::white}%chance to" and "%{clr::white}%drop a legendary fish." and "&7 " and "%{clr::mainlight}%&lOBTAINED FROM" and "%{clr::white}%Rare drop from fishing" and "&7 "
+	open last gui to {_p}
+every 5 minutes:
+	shark_fish()
+function shark_fish():
+	loop all players:
+		if {-tempdata::%loop-player's uuid%::petID} is "shark":
+			set {_power} to {-tempdata::%loop-player's uuid%::sharkFishing}
+			set {_u} to a random number between 1 and 100
+			if {_u} is between 1 and {_power}:
+				send formatted "%{clr::main}%&LSHARK PET%{clr::mainlight}% Your shark pet just fished up a &6Legendary Fish!" to loop-player
+				give loop-player a random element out of {fish::legendary::*}
+				play sound "entity.fishing_bobber.splash" for loop-player
+			else:
+				play sound "entity.fishing_bobber.splash" for loop-player
+				send formatted "%{clr::main}%&LSHARK PET%{clr::mainlight}% Your shark pet just fished up a fish!" to loop-player
+				chance of 50%:
+					give loop-player a random element out of {fish::common::*}
+				else:
+					give loop-player a random element out of {fish::rare::*}

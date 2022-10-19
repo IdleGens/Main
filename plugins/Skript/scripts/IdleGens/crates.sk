@@ -1,0 +1,213 @@
+on load:
+	delete {crates::*}
+
+
+	set {crates::rare::key} to shiny tripwire hook with nbt compound from "{CrateKey:""Rare"",keepNBT:1}" named "<##4c41e0>[ &LRARE KEY <##4c41e0>]"  with lore "&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "%{clr::gray}% • %{clr::white}% Use at <##4c41e0>/crates%{clr::white}% to claim cool rewards", "&f", "<##4c41e0>&LRARE"
+
+	set {crates::epic::key} to  shiny tripwire hook with nbt compound from "{CrateKey:""Epic"",keepNBT:1}" named "<##6e14b3>[ &LEPIC KEY <##6e14b3>]"  with lore "&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "%{clr::gray}% • %{clr::white}% Use at <##6e14b3>/crates%{clr::white}% to claim cool rewards", "&f", "<##6e14b3>&LEPIC"
+
+	set {crates::legendary::key} to shiny tripwire hook with nbt compound from "{CrateKey:""legendary"",keepNBT:1}" named "<##ed9e37>[ &LLEGENDARY KEY <##ed9e37>]"  with lore "&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "%{clr::gray}% • %{clr::white}% Use at <##ed9e37>/crates%{clr::white}% to claim cool rewards", "&f", "<##ed9e37>&LLEGENDARY"
+
+	set {crates::pets::key} to shiny tripwire hook with nbt compound from "{CrateKey:""pet"",keepNBT:1}" named "<##f5c9e1>[ &LPETS KEY <##f5c9e1>]"  with lore "&f", "%{clr::gray}%&LINFO%{clr::gray}%:", "%{clr::gray}% • %{clr::white}% Use at <##f5c9e1>/crates%{clr::white}% to claim cool rewards", "&f", "<##f5c9e1>&LSPECIAL"
+
+	crates_defineCrate("rare", blue stained glass)
+
+	set {_item} to rooted dirt with nbt compound from "{giveGen:""dirt""}" named "%{clr::mainlight}%[ %{clr::main}%&LDIRT GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("rare",{_item}, 100)
+	set {_item} to orange concrete with nbt compound from "{giveGen:""carrot""}" named "%{clr::mainlight}%[ %{clr::main}%&LCARROT GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("rare",{_item}, 50)
+	set {_item} to sunflower with nbt compound from "{giveCoin:5000}" named "&6[ &e&L5k COINS &6]"
+	crates_addCrateDrop("rare",{_item}, 20)
+	set {_item} to purple dye with nbt compound from "{giveToken:200}" named "&5[ &d&L200 TOKENS &5]"
+	crates_addCrateDrop("rare",{_item}, 20)
+
+	set {_item} to Melon with nbt compound from "{giveGen:""melon""}" named "%{clr::mainlight}%[ %{clr::main}%&LMELON GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("rare",{_item}, 10)
+	set {_item} to pumpkin with nbt compound from "{giveGen:""pumpkin""}" named "%{clr::mainlight}%[ %{clr::main}%&LPUMPKIN GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("rare",{_item}, 10)
+	set {_item} to sunflower with nbt compound from "{giveCoin:15000}" named "&6[ &e&L15k COINS &6]"
+	crates_addCrateDrop("rare",{_item}, 10)
+	set {_item} to purple dye with nbt compound from "{giveToken:900}" named "&5[ &d&L900 TOKENS &5]"
+	crates_addCrateDrop("rare",{_item}, 5)
+
+
+
+	crates_defineCrate("epic", purple stained glass)
+
+	set {_item} to green terracotta with nbt compound from "{giveGen:""cactus""}" named "%{clr::mainlight}%[ %{clr::main}%&LCACTUS GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("epic",{_item}, 50)
+	set {_item} to sunflower with nbt compound from "{giveCoin:50000}" named "&6[ &e&L50k COINS &6]"
+	crates_addCrateDrop("epic",{_item}, 20)
+	set {_item} to purple dye with nbt compound from "{giveToken:1000}" named "&5[ &d&L1000 TOKENS &5]"
+	crates_addCrateDrop("epic",{_item}, 20)
+
+	set {_item} to white concrete with nbt compound from "{giveGen:""flower""}" named "%{clr::mainlight}%[ %{clr::main}%&LFLOWER GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("epic",{_item}, 10)
+	set {_item} to lime terracotta with nbt compound from "{giveGen:""bamboo""}" named "%{clr::mainlight}%[ %{clr::main}%&LBAMBOO GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("epic",{_item}, 5)
+	set {_item} to sunflower with nbt compound from "{giveCoin:100000}" named "&6[ &e&L100k COINS &6]"
+	crates_addCrateDrop("epic",{_item}, 10)
+	set {_item} to purple dye with nbt compound from "{giveToken:2500}" named "&5[ &d&L2500 TOKENS &5]"
+	crates_addCrateDrop("epic",{_item}, 10)
+
+
+	crates_defineCrate("legendary", orange stained glass)
+
+	set {_item} to dried kelp block with nbt compound from "{giveGen:""kelp""}" named "%{clr::mainlight}%[ %{clr::main}%&LKELP GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("legendary",{_item}, 100)
+	set {_item} to sunflower with nbt compound from "{giveCoin:200000}" named "&6[ &e&L200k COINS &6]"
+	crates_addCrateDrop("legendary",{_item}, 20)
+	set {_item} to purple dye with nbt compound from "{giveToken:5000}" named "&5[ &d&L5000 TOKENS &5]"
+	crates_addCrateDrop("legendary",{_item}, 20)
+
+	set {_item} to stripped spruce wood with nbt compound from "{giveGen:""plank""}" named "%{clr::mainlight}%[ %{clr::main}%&LPLANK GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("legendary",{_item}, 10)
+	set {_item} to oak wood with nbt compound from "{giveGen:""log""}" named "%{clr::mainlight}%[ %{clr::main}%&LLOG GENERATOR %{clr::mainlight}%]"
+	crates_addCrateDrop("legendary",{_item}, 5)
+	set {_item} to sunflower with nbt compound from "{giveCoin:600000}" named "&6[ &e&L600k COINS &6]"
+	crates_addCrateDrop("legendary",{_item}, 5)
+	set {_item} to purple dye with nbt compound from "{giveToken:20000}" named "&5[ &d&L20000 TOKENS &5]"
+	crates_addCrateDrop("legendary",{_item}, 5)
+
+
+	crates_defineCrate("pet", white stained glass)
+
+	crates_addCrateDrop("pet", getPet("capybara",1), 25)
+	crates_addCrateDrop("pet", getPet("rat",1), 25)
+	crates_addCrateDrop("pet", getPet("fox",1), 45)
+
+	crates_addCrateDrop("pet", getPet("capybara",2), 10)
+	crates_addCrateDrop("pet", getPet("rat",2), 10)
+	crates_addCrateDrop("pet", getPet("fox",3), 10)
+
+	crates_addCrateDrop("pet", getPet("capybara",3), 2)
+	crates_addCrateDrop("pet", getPet("rat",4), 2)
+	crates_addCrateDrop("pet", getPet("fox",5), 2)
+
+	crates_addCrateDrop("pet", getPet("capybara",4), 1)
+	crates_addCrateDrop("pet", getPet("rat",5), 1)
+
+	crates_addCrateDrop("pet", getPet("capybara",5), 0.1)
+
+
+
+function crates_getDrop(crate: string) :: item:
+	loop 100 times:
+		set {_index} to random integer between 1 and size of {crates::%{_crate}%::drops::chance::*}
+		set {_chance} to {crates::%{_crate}%::drops::chance::%{_index}%}
+		chance of {_chance}:
+			return {crates::%{_crate}%::drops::items::%{_index}%}
+
+function crates_defineCrate(crate: string, block: item):
+	set {crates::%{_crate}%::block} to {_block}
+	set {crates::%{_crate}%::active} to true
+
+function crates_addCrateDrop(crate: string, item: item, chance: number):
+	add {_item} to {crates::%{_crate}%::drops::items::*}
+	add {_chance} to {crates::%{_crate}%::drops::chance::*}
+
+
+on place:
+	if tag "tag;CrateBlock" of nbt compound of player's tool is set:
+		set {_crate} to tag "tag;CrateBlock" of nbt compound of player's tool
+		send action bar "&aCrate %{_crate}% has been placed" to player
+		set {_nbt} to nbt compound of event-block 
+		set tag "tag;CrateBlock" of {_nbt} to {_crate}
+
+
+on left click:
+	event-block is set
+	if tag "tag;CrateBlock" of nbt compound of event-block is set:
+		cancel event
+		set {_crate} to tag "tag;CrateBlock" of nbt compound of event-block
+		play sound "block.chest.open" to player
+		create a gui with virtual chest inventory with size 4 named "Crate : %{_crate}%":
+
+			loop 9 times:
+				format gui slot (loop-number - 1) with black stained glass pane named "&f"
+
+			format gui slot 9, 17, 18, 26 with black stained glass pane named "&f"
+
+			loop 9 times:
+				format gui slot (loop-number - 1) + 27 with black stained glass pane named "&f"
+
+			format gui slot 31 with barriers named "%{clr::error}%&lCLOSE" with lore "&f", "&f%{clr::error}%&LCLICK %{clr::error}%Close GUI", "%{clr::errorGray}%Goodbye!", "&f":
+				close player's inventory
+
+			loop {crates::%{_crate}%::drops::items::*}:
+				set {_lore::*} to lore of loop-value
+
+				delete {_lore::%size of {_lore::*}%}
+
+				if length of {_lore::%size of {_lore::*}%} is less than 3:
+					delete {_lore::%size of {_lore::*}%}
+				
+				add "&f" to {_lore::*}
+				add "%{clr::gray}%&LCHANCE%{clr::gray}%:" to {_lore::*}
+				add "%{clr::gray}% • %{clr::white}%%{crates::%{_crate}%::drops::chance::%loop-index%}%%%" to {_lore::*}
+				add "&f" to {_lore::*}
+
+				format next gui slot with loop-value named "%crates_getItemName(loop-value)%" with lore {_lore::*}
+			
+			run on gui close:
+				play sound "block.chest.close" to player
+
+		open last gui to player
+
+
+function crates_getItemName(i: item) :: string:
+	set {_ia} to "%{clr::gray}%x%item amount of {_i}% "
+	if item amount of {_i} is less than 2:
+		set {_ia} to ""
+	if display name of {_i} is set:
+		return "%{_ia}%%{clr::main}%%display name of {_i}%"
+	else:
+		return "%{_ia}%%{clr::main}%%type of {_i}%"
+
+on rightclick:
+	event-block is set
+	if tag "tag;CrateBlock" of nbt compound of event-block is set: 	
+		cancel event
+		{-tempdata::%player's uuid%::cooldown} is not set
+		set {-tempdata::%player's uuid%::cooldown} to true
+		set {_crate} to tag "tag;CrateBlock" of nbt compound of event-block
+		if tag "tag;CrateKey" of nbt compound of player's tool is {_crate}:
+			delete {-tempdata::%player's uuid%::cooldown}
+			set item amount of player's tool to (item amount of player's tool - 1)
+			play sound "item.shield.block" with pitch 1.5
+			play sound "block.note_block.bell" with pitch 0.7
+			set {_item} to crates_getDrop({_crate})
+			send formatted "%title()% %{clr::white}%You have earned %crates_getItemName({_item})%%{clr::white}%!"
+			if tag "tag;giveGen" of nbt compound of {_item} is set:
+				set {_gen} to tag "tag;giveGen" of nbt compound of {_item}
+				execute console command "/tg give %{_gen}% %player%"
+				stop
+			if tag "tag;giveCoin" of nbt compound of {_item} is set:
+				set {_coin} to tag "tag;giveCoin" of nbt compound of {_item}
+				add {_coin} to player's balance
+				stop
+			if tag "tag;giveToken" of nbt compound of {_item} is set:
+				set {_token} to tag "tag;giveToken" of nbt compound of {_item}
+				add {_token} to {-data::%player's uuid%::crystal}
+				stop
+			give player {_item}
+			
+		else:
+			send formatted "%{clr::error}%[%{clr::error}%&lERROR%{clr::error}%] %{clr::error}%You don't have the proper crate key!"
+			push player backwards at speed 0.9
+			push player upwards at speed 0.2
+			errorSound(player)
+			wait 15 ticks
+			delete {-tempdata::%player's uuid%::cooldown}
+
+command /crate [<text>] [<text>]:
+	aliases: crates
+	trigger:
+		if arg-1 is not set:
+			teleport player to {crates}
+		else if player has permission "idlegens.crates.manage":
+			if arg-1 is "item":
+				if arg-2 is set:
+					set {_name} to arg-2 in uppercase
+					set {_block} to {crates::%arg-2%::block} with nbt compound from "{CrateBlock:""%arg-2%""}" named "%{clr::main}%&L%{_name}% CRATE BLOCK"
+					give player {_block}

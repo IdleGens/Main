@@ -1,0 +1,108 @@
+
+
+command /fly:
+	trigger:
+		if player does not have permission "fly.anywhere":
+			if player's world is not "IdleGens":
+				send "%{clr::error}%You only fly in plot worlds!"
+				stop
+
+		if player's flight mode is true:
+			set player's flight mode to false 
+			send "%title()% %{clr::white}%You have stopped flying"
+		else:
+			set player's flight mode to true
+			send "%title()% %{clr::white}%You are now flying"
+		play sound "block.lever.click" with pitch 2
+
+
+
+command /flyspeed [<number>]:
+	permission: command.flyspeed
+	trigger:
+		if arg-1 is not set:
+			set player's fly speed to 0.1
+		else if arg-1 is between 1 and 10:
+			set {_num} to thisNumber(arg-1)
+			set player's fly speed to ({_num} / 10)
+			send formatted "%title()% %{clr::white}%Flight speed has been set to %arg-1%"
+			play sound "block.lever.click" with pitch 2			
+		else:
+			send formatted "%{clr::error}%Flyspeed can only be between 1 and 10"
+
+command /discord:
+	trigger:
+		send dash("%{clr::main}%")
+		send "&f"
+		send formatted "%{clr::main}%&LDISCORD"
+		send formatted "%{clr::gray}% • %{clr::white}%<link:https://discord.gg/uSJcJQcDns>Click Here to Join"
+		send "&f"
+		send dash("%{clr::main}%")
+
+command /nick [<string>]:
+	permission: command.nick
+	trigger:
+		if arg-1 is not set:
+			reset player's display name
+			send formatted "%title()% %{clr::white}%Reset Nickname"
+			play sound "block.lever.click" with pitch 2
+		else:
+			if player has permission "command.nick.color":
+				set {_nick} to colored arg-1
+			else:
+				set {_nick} to uncolored arg-1
+			set player's display name to "%{_nick}%" 
+			send formatted "%title()% %{clr::white}%Set nickname to ""%{_nick}%"" "
+			play sound "block.lever.click" with pitch 2
+
+on world change:
+	if player does not have permission "fly.anywhere":
+		set player's flight mode to false
+
+on teleport:
+	if player does not have permission "fly.anywhere":
+		set player's flight mode to false
+
+
+
+command /givetoken <player> <number>:
+	permission: *
+	trigger:
+		add arg-2 to {-data::%arg-1's uuid%::crystal}
+
+command /givecrate <player> <string>:
+	permission: *
+	trigger:
+		give arg-1 {crates::%arg-2%::key}
+
+command /givesellwand <player> <number>:
+	permission: *
+	trigger:
+		give arg-1 getSellWand(arg-2, 0)
+
+on damage: 
+	cancel event
+
+on death:
+	cancel event
+
+
+on rightclick:
+	entity is citizen
+	name of entity is "start"
+	make player execute "/start"
+
+command /start:
+	trigger:
+		if {-data::%player's uuid%::start} is not set:
+			set {-data::%player's uuid%::start} to true
+			execute console command "/tg give dirt %player%"
+			execute console command "/tg give dirt %player%"
+			execute console command "/tg give dirt %player%"
+			execute console command "/tg give dirt %player%"
+			execute console command "/tg give dirt %player%"
+			give player unbreakable iron hoe
+			give player 2 of water bucket
+			give player 5 of {farming::items::wheat::seed}
+			give player miningPickaxe(nbt compound from "{Pickaxe:{tier:1,fortune:1}}")
+			make player execute "/plot auto"

@@ -1,0 +1,30 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 127.0.0.1
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1659748199043
+  login: 1659748181250
+money: '0.0'
+last-account-name: MrEnx0
+logoutlocation:
+  world: 4a117a1a-0f92-4bd3-a1d1-3a0da0f099fa
+  world-name: plots
+  x: 109.50663348199687
+  y: 63.0
+  z: 120.33913797451288
+  yaw: 76.19734191894531
+  pitch: 16.499862670898438

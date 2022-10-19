@@ -88,9 +88,6 @@ player-auto-save:
   max-per-tick: -1
   rate: -1
 proxies:
-  bungee-cord:
-    online-mode: true
-  proxy-protocol: false
   velocity:
     enabled: true
     online-mode: true

@@ -1,0 +1,213 @@
+on load:
+	delete {farming::holograms::*}
+
+
+	add "&f" to {_lore::*}
+	add "%{clr::gray}%&LINFO%{clr::gray}%:" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Plant at you plot to grow." to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Plants need water!" to {_lore::*}
+	add "&f" to {_lore::*}
+	add "%{clr::main}%&LSPECIAL" to {_lore::*}
+	
+	add "&f" to {_lorecrop::*}
+	add "%{clr::gray}%&LINFO%{clr::gray}%:" to {_lorecrop::*}
+	add "%{clr::gray}% • %{clr::white}%Used at the farmer to craft special items." to {_lorecrop::*}
+	add "%{clr::gray}% • %{clr::white}%Can be sold at %{clr::main}%/sell." to {_lorecrop::*}
+	add "&f" to {_lorecrop::*}
+	add "%{clr::main}%&LSPECIAL" to {_lorecrop::*}
+
+
+	add "&f" to {_lorepcrop::*}
+	add "%{clr::gray}%&LINFO%{clr::gray}%:" to {_lorepcrop::*}
+	add "%{clr::gray}% • %{clr::white}%Plant at you plot to grow." to {_lorepcrop::*}
+	add "%{clr::gray}% • %{clr::white}%Used at the farmer to craft special items." to {_lorepcrop::*}
+	add "%{clr::gray}% • %{clr::white}%Can be sold at %{clr::main}%/sell." to {_lorepcrop::*}
+	add "&f" to {_lorepcrop::*}
+	add "%{clr::main}%&LSPECIAL" to {_lorepcrop::*}
+
+	set {farming::items::wheat::crop} to wheat with nbt compound from "{crop:""wheat"",TransmitNBT:{sellValue:500}}" named "%{clr::mainlight}%[ %{clr::main}%&LWHEAT%{clr::mainlight}% ]" with lore {_lorecrop::*}
+	set {farming::items::wheat::seed} to seed with nbt compound from "{Plant:""wheat"",keepNBT:1}" named "%{clr::mainlight}%[ %{clr::main}%&LWHEAT SEEDS%{clr::mainlight}% ]" with lore {_lore::*}
+
+	set {_item2} to potato with nbt compound from "{crop:""potato"",TransmitNBT:{sellValue:15000},keepNBT:1}" named "%{clr::mainlight}%[ %{clr::main}%&LPOTATO%{clr::mainlight}% ]" with lore {_lorepcrop::*}
+	set {_item} to potato with nbt compound from "{Plant:""potato"",keepNBT:1}" named "%{clr::mainlight}%[ %{clr::main}%&LPOTATO SEED%{clr::mainlight}% ]" with lore {_lorepcrop::*}
+
+	set {farming::items::potato::crop} to {_item2}
+	set {farming::items::potato::seed} to {_item}
+
+	set {_item2} to carrot with nbt compound from "{crop:""carrot"",TransmitNBT:{sellValue:30000},keepNBT:1}" named "%{clr::mainlight}%[ %{clr::main}%&LCARROT%{clr::mainlight}% ]" with lore {_lorepcrop::*}
+	set {_item} to carrot with nbt compound from "{Plant:""carrot"",keepNBT:1}" named "%{clr::mainlight}%[ %{clr::main}%&LCARROT SEED%{clr::mainlight}% ]" with lore {_lorepcrop::*}
+
+	set {farming::items::carrot::crop} to {_item2}
+	set {farming::items::carrot::seed} to {_item}
+
+	set {_item} to beetroot seeds with nbt compound from "{Plant:""beetroot"",keepNBT:1}" named "%{clr::mainlight}%[ %{clr::main}%&LBEETROOT SEEDS%{clr::mainlight}% ]" with lore {_lore::*}
+
+	
+	set {farming::items::beetroot::seed} to {_item}
+
+	set {_item} to beetroot with nbt compound from "{crop:""beetroot"",TransmitNBT:{sellValue:290000}}" named "%{clr::mainlight}%[ %{clr::main}%&LBEETROOT%{clr::mainlight}% ]" with lore {_lorecrop::*}
+
+	set {farming::items::beetroot::crop} to {_item}
+
+
+	set {farming::items::enchanted::wheat} to shiny wheat with nbt compound from "{crop:""wheat"",compressed:1}" named "%{clr::mainlight}%[ %{clr::main}%&LENCHANTED WHEAT%{clr::mainlight}% ]" with lore {_lorecrop::*}
+	set {farming::items::enchanted::potato} to shiny potato with nbt compound from "{crop:""potato"",compressed:1}" named "%{clr::mainlight}%[ %{clr::main}%&LENCHANTED POTATO%{clr::mainlight}% ]" with lore {_lorecrop::*}
+	set {farming::items::enchanted::carrot} to shiny carrot with nbt compound from "{crop:""carrot"",compressed:1}" named "%{clr::mainlight}%[ %{clr::main}%&LENCHANTED CARROT%{clr::mainlight}% ]" with lore {_lorecrop::*}
+	set {farming::items::enchanted::beetroot} to shiny beetroot with nbt compound from "{crop:""beetroot"",compressed:1}" named "%{clr::mainlight}%[ %{clr::main}%&LENCHANTED BEETROOT%{clr::mainlight}% ]" with lore {_lorecrop::*}
+
+	add "&f" to {_lore2::*}
+	add "%{clr::gray}%&LINFO%{clr::gray}%:" to {_lore2::*}
+	add "%{clr::gray}% • %{clr::white}%Automatically waters plants in a 3x3 Radius." to {_lore2::*}
+	add "&f" to {_lore2::*}
+	add "%{clr::main}%&LSPECIAL" to {_lore2::*}
+
+	set {farming::items::sprinkler} to observer with nbt compound from "{Sprinkler:1b}" named "%{clr::mainlight}%[ %{clr::main}%&LSPRINKLER%{clr::mainlight}% ]"  with lore {_lore2::*}
+	set {farming::items::watering_can} to diamond horse armor with nbt compound from "{Watering:0,WaterSize:1}" named "%{clr::mainlight}%[ %{clr::main}%&LWATERING CAN%{clr::mainlight}% ]" with lore wateringlore(0,1)
+	set {farming::items::watering_hose} to shiny bamboo with nbt compound from "{Watering:0,WaterSize:6}" named "%{clr::mainlight}%[ %{clr::main}%&LWATERING HOSE%{clr::mainlight}% ]" with lore wateringlore(0,6)
+
+	set {farming::items::hoe::wheat} to unbreakable golden hoe with nbt compound from "{hoe:{id:""wheat"",multi:2}}" named "%{clr::mainlight}%[ %{clr::main}%&LWHEAT HOE%{clr::mainlight}% ]" with lore hoeLore(2, "wheat")
+	set {farming::items::hoe::potato} to unbreakable wooden hoe with nbt compound from "{hoe:{id:""potato"",multi:2}}" named "%{clr::mainlight}%[ %{clr::main}%&LPOTATO HOE%{clr::mainlight}% ]" with lore hoeLore(2, "potato")
+	set {farming::items::hoe::carrot} to unbreakable iron hoe with nbt compound from "{hoe:{id:""carrot"",multi:2}}" named "%{clr::mainlight}%[ %{clr::main}%&LCARROT HOE%{clr::mainlight}% ]" with lore hoeLore(2, "carrot")
+	set {farming::items::hoe::beetroot} to unbreakable diamond hoe with nbt compound from "{hoe:{id:""beetroot"",multi:2}}" named "%{clr::mainlight}%[ %{clr::main}%&LBEETROOT HOE%{clr::mainlight}% ]" with lore hoeLore(2, "beetroot")
+
+
+
+function hoeLore(multi: number, id: string) :: strings:
+	add "&f" to {_lore::*}
+	add "%{clr::gray}%&LINFO%{clr::gray}%:" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%%{_id}% Multi: %{clr::main}%%{_multi}%" to {_lore::*}
+	add "%{clr::gray}% • %{clr::white}%Gives you more %{_id}% when farming" to {_lore::*}
+	add "%{clr::gray}% • %{clr::main}%Shift+Right-click %{clr::white}%to upgrade." to {_lore::*}
+	add "&f" to {_lore::*}
+	add "%{clr::main}%&LSPECIAL" to {_lore::*}
+	
+	return {_lore::*}
+		
+
+on right click:
+	if tag "tag;hoe" of nbt compound of player's tool is set:
+		player is sneaking
+		hoeUpgrade(player)
+
+
+
+function hoeUpgrade(p: player):
+
+	set {_hoe} to tag "tag;hoe" of nbt compound of {_p}'s tool
+	set {_multi} to thisNumber(tag "multi" of {_hoe})
+	set {_id} to tag "id" of {_hoe}
+
+	create a gui with virtual chest inventory with size 3 named "Hoe Upgrade":
+		loop (3 * 9) times:
+			format gui slot ( loop-number - 1 ) with gray stained glass pane named "&f"
+
+		set {_tokenCost} to 4 ^ ({_multi} + 4) 
+		set {_itemCost} to {_multi} ^ 4
+		set {_item} to {farming::items::%{_id}%::crop}
+
+		if ({_itemCost} / 64) >= 1:
+			set {_item} to {farming::items::enchanted::%{_id}%}
+			set {_itemCost} to ceil({_itemCost} / 64)
+
+		set {_totalItem} to {_itemCost} of {_item}
+
+		add "&f" to {_lore::*}
+		add "%{clr::main}%&lPRICE%{clr::main}%:" to {_lore::*}
+		add "%{clr::gray}% • &5◎&d%nFormat({_tokenCost})%" to {_lore::*}
+		add "%{clr::gray}% • %crates_getItemName({_totalItem})%" to {_lore::*}
+		add "&f" to {_lore::*}
+		add "%{clr::main}%&lCLICK %{clr::main}%Upgrade" to {_lore::*}
+		add "%{clr::gray}% • %{clr::white}%Upgrade your hoes multiplier" to {_lore::*}
+		add "&f" to {_lore::*}
+
+		format gui slot 13 with shiny gold block named "%{clr::mainlight}%[ %{clr::main}%&LUPGRADE HOE%{clr::mainlight}% ]" with lore {_lore::*}:
+			if API_hasItem(player, {_totalItem}):
+				if {-data::%player's uuid%::crystal} >= {_tokenCost}:
+					set {_nbt} to nbt compound of player's tool
+					set {_nmulti} to {_multi} + ceil({_multi} * 0.25)
+					set tag "tag;hoe;multi" of {_nbt} to {_nmulti} 
+					set {_titem} to item from nbt {_nbt}
+					set lore of {_titem} to hoeLore({_nmulti}, {_id})
+					set player's tool to {_titem}
+					play sound "block.amethyst_cluster.hit" with pitch 2
+					remove {_totalItem} from player's inventory
+					remove {_tokenCost} from {-data::%player's uuid%::crystal}
+					close player's inventory
+					stop
+			errorSound(player)
+	
+	open last gui to {_p}
+
+
+on inventory click:
+	if name of player's inventory is "Hoe Upgrade":
+		if "%click type%" is "number key":
+			cancel event
+		if tag "tag;hoe" of nbt compound of event-item is set:
+			cancel event
+
+
+on break:
+	event-block is wheat, potato plant, carrot plant or beetroot plant
+	tag "custom;Plant" of nbt compound of event-block is not set
+
+	cancel event
+	set event-block to air
+
+
+on break:
+	player's gamemode is survival
+	event-block is farmland
+	block above event-block is not air
+
+	cancel event
+
+on break:
+	if tag "custom;Unbreakable" of nbt compound of event-block is set:
+		cancel event
+		
+
+on place:
+	if tag "tag;Plant" of nbt compound of player's tool is set:
+		set {_plant} to tag "tag;Plant" of nbt compound of player's tool
+		set {_nbt} to nbt compound of event-block 
+		set tag "custom;Plant" of {_nbt} to nbt compound from "{id:""%{_plant}%"",NeedWater:1b,Growth:0,Ready:0b}"
+		set {_loc} to location of event-block
+		add 0.75 to y-coord of {_loc}
+
+
+on break:
+	if tag "custom;Plant" of nbt compound of event-block is set:
+		set {_plant} to tag "custom;Plant" of nbt compound of event-block 
+		set {_id} to tag "id" of {_plant}
+		clear drops
+		if is_crop_ready(event-block):
+			set {_multi} to random integer between 1 and 3
+			if tag "tag;hoe;id" of nbt compound of player's tool is {_id}:
+				set {_hoe} to tag "tag;hoe" of nbt compound of player's tool
+				set {_num} to thisNumber(tag "multi" of {_hoe})
+				set {_multi} to random integer between {_num} and ({_num} + 3)
+			if {-tempdata::%player's uuid%::petID} is "cow":
+				add ({_multi} * ({-tempdata::%player's uuid%::petPOWER} / 100)) to {_multi}
+			give player {_multi} of {farming::items::%{_id}%::crop}
+			give player {farming::items::%{_id}%::seed}
+
+
+function is_crop_ready(b: block) :: boolean:
+	set {_stage} to block data tag "age" of {_b}
+	if tag "custom;Plant" of nbt compound of {_b} is set:
+		set {_maxage} to 7
+		if {_b} is beetroot plant:
+			set {_maxage} to 3
+		if {_stage} = {_maxage}:
+			return true
+	return false
+
+on place:
+	if player's tool is a carrot, seed, beetroot seed or a potato:
+		if tag "tag;Plant" of nbt compound of player's tool is not set:
+			cancel event
+
+on crop growth:
+	if tag "custom;Plant" of nbt compound of event-block is not set:
+		cancel event

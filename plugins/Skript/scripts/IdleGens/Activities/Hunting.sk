@@ -1,0 +1,26 @@
+on load:
+    set {treasurechest} to a player head with nbt compound from "{SkullOwner:{Id:[I;8063451,-1821749535,-1906282655,388759118],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTM1YzE2NTUxYWYzOTI4MWQ4MzA3ODAwZjg1NGMxOGRiNTg3NDdhMWNiYjAxMTYyODY1OGZjYzI1NWExM2M3YyJ9fX0=""}]}}}"
+    set {treasuretool} to a player head named "&aPlacing Tool" with nbt compound from "{SkullOwner:{Id:[I;8063451,-1821749535,-1906282655,388759118],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTM1YzE2NTUxYWYzOTI4MWQ4MzA3ODAwZjg1NGMxOGRiNTg3NDdhMWNiYjAxMTYyODY1OGZjYzI1NWExM2M3YyJ9fX0=""}]}}}"
+    set {_n} to nbt compound from "{Harvester:10}"
+    set {harvester} to wooden sword with nbt {_n}
+
+on place:
+    if player's tool is {treasuretool}:
+        if player's gamemode is creative:
+            add location of event-block to {treasure::*}
+            set event-block to air 
+            show 5 "SPELL_WITCH" particles at location of event-block for player
+            send "&aLocation Added" to player
+
+function createTreasure():
+    loop 10 times:
+        set {_s} to a random element out of {treasure::*}
+        set block at location of {_s} to ender chest
+
+function clearTreasure():
+    loop {treasure::*}:
+        set block at location of loop-value to air
+
+on right click on ender chest:
+    if {treasure::*} contains location of event-block:
+        cancel event

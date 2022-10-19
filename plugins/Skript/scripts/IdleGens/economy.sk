@@ -1,0 +1,86 @@
+
+
+
+function economy_buyToken(p: player, c: number) :: boolean:
+	if {-data::%{_p}'s uuid%::crystal} >= {_c}:
+		remove {_c} from {-data::%{_p}'s uuid%::crystal}
+		play sound "block.amethyst_cluster.hit" with pitch 2 to {_p}
+		return true
+	else:
+		errorSound({_p})
+		return false
+
+
+function economy_buyCoin(p: player, c: number) :: boolean:
+	if {_p}'s balance >= {_c}:
+		remove {_c} from {_p}'s balance
+		play sound "block.amethyst_cluster.hit" with pitch 2 to {_p}
+		return true
+	else:
+		errorSound({_p})
+		return false
+
+
+
+function economy_sell(p: player, inv: inventory) :: boolean:
+	set {_amount} to 0
+	loop all items in {_inv}:
+		set {_value} to tag "tag;TransmitNBT;sellValue" of nbt compound of loop-item
+		if {_value} is set:
+			add {_value} * item amount of loop-item to {_amount}
+			set item amount of loop-item to 0
+
+	
+	set {_multi} to 1
+	if tag "tag;SellWandMP" of nbt compound of {_p}'s tool is set:
+		add (thisNumber(int tag "tag;SellWandMP" of nbt compound of {_p}'s tool) - 1) to {_multi}
+	if {-tempdata::%{_p}'s uuid%::capybaraCoinBuff} is set:
+		add {-tempdata::%{_p}'s uuid%::capybaraCoinBuff} to {_multi}
+	if {_p}'s group is "default":
+		add 0 to {_multi}
+	else if {_p}'s group is "memberplus":
+		add 0.1 to {_multi}
+	else if {_p}'s group is "vip":
+		add 0.2 to {_multi}
+	else if {_p}'s group is "mvp":
+		add 0.3 to {_multi}
+	else if {_p}'s group is "legend":
+		add 0.5 to {_multi}
+	else:
+		add 0.5 to {_multi}
+	add ({-data::%{_p}'s uuid%::multi} - 1) to {_multi} 
+	set {_amount} to {_amount} * {_multi}
+	set {_unmulti} to {_amount}^-0.04
+	set {_unmulti2} to {_amount}^-0.15
+	addXP({_p}, ceil({_amount} * (0.2 * {_unmulti})))
+	addPetXP({_p}, ceil({_amount} * (0.05 * {_unmulti2})))
+	add {_amount} to {_p}'s balance
+	if {_amount} > 0:
+		send formatted "&f" to {_p}
+		send formatted dash({clr::main}) to {_p}
+		send formatted "&f" to {_p}
+		send formatted "%{clr::main}%&lSELL" to {_p}
+		send formatted "%{clr::gray}%• %{clr::white}%Sold all your current items for &6⛃&e%{_amount}%" to {_p}
+		send formatted "&f" to {_p}
+		send formatted dash({clr::main}) to {_p}
+		send formatted "&f" to {_p}
+		play sound "block.amethyst_cluster.hit" with pitch 2 to {_p}
+		return true
+	else:
+		play sound "block.note_block.didgeridoo" with pitch 0.8 to {_p}
+		send formatted "&f" to {_p}
+		send formatted dash({clr::graylight}) to {_p}
+		send formatted "&f" to {_p}
+		send formatted "%{clr::graylight}%&lSELL" to {_p}
+		send formatted "%{clr::gray}%• %{clr::graylight}%You had nothing to sell :(" to {_p}
+		send formatted "&f" to {_p}
+		send formatted dash({clr::graylight}) to {_p}
+		send formatted "&f" to {_p}
+		return false
+
+command /sell:
+	trigger:
+		set {_inv} to player's inventory
+		economy_sell(player, {_inv})
+
+

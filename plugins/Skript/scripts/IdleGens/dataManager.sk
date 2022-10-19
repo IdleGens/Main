@@ -1,0 +1,80 @@
+on load:
+	set {-Database::Client} to mongo server with connection string "mongodb://06aCAnYAAhTNA1:!N()A5n1ANGPQ^!^&*(!@#AMHA}!%%}Q_))_Q)(((!^@23.175.144.175:20144/?authSource=admin"
+	set {-Database::Database} to mongo database named "test" from {-Database::Client}
+	set {-Database::playersCollection} to mongo collection named "playerData" of {-Database::Database}
+
+on join:
+	set {_doc} to first mongo document with mongosk filter where field "_id" is {_p}'s uuid of collection {-Database::playersCollection}
+	if {_doc} is not set:
+		dataManager_newFile(player)
+		stop
+	dataManager_loadFile(player)
+
+
+on quit:
+	dataManager_saveFile(player, true)
+
+
+every 15 minutes:
+	loop all players:
+		dataManager_saveFile(loop-player)
+		wait 1 tick
+
+function dataManager_newFile(p: player):
+	set {_doc} to new mongo document
+	set mongo value "_id" of {_doc} to {_p}'s uuid
+	set {-data::%{_p}'s uuid%::level} to 1
+	set {-data::%{_p}'s uuid%::xp} to 0
+	insert mongo document {_doc} into collection {-Database::playersCollection}
+
+
+function eco_tempfix():
+	loop all players:
+		set {_p} to loop-player
+		set {_doc} to first mongo document with mongosk filter where field "_id" is {_p}'s uuid of collection {-Database::playersCollection}
+		set {_num} to mongo value "coins" of {_doc}
+		set {_p}'s balance to {_num}
+
+function dataManager_loadFile(p: player):
+	set {_doc} to first mongo document with mongosk filter where field "_id" is {_p}'s uuid of collection {-Database::playersCollection}
+	if {_doc} is not set:
+		dataManager_newFile({_p})
+		stop
+	set {_json} to mongo json of {_doc}
+	
+	set {-data::%{_p}'s uuid%::_id} to {_p}'s uuid
+	map json {_json} to {-data::%{_p}'s uuid%::*}
+
+	set {_p}'s balance to {-data::%{_p}'s uuid%::coins}
+		
+
+
+function dataManager_saveFile(p: player, delete: boolean = false):
+	set {_doc} to first mongo document with mongosk filter where field "_id" is {_p}'s uuid of collection {-Database::playersCollection}
+	if {_doc} is not set:
+		dataManager_newFile({_p})
+		stop
+	set {-data::%{_p}'s uuid%::_id} to {_p}'s uuid
+	set {-data::%{_p}'s uuid%::coins} to thisNumber({_p}'s balance)
+
+	set {_json} to json form of {-data::%{_p}'s uuid%::*}
+
+	set mongo json of {_doc} to {_json}
+
+	if {_delete} is true:
+		delete {-data::%{_p}'s uuid%::*}
+		delete {-tempdata::%{_p}'s uuid%::*}
+
+
+	update mongo document {_doc} of {-Database::playersCollection}
+
+
+function thisNumber(n: number) :: number:
+	return {_n}
+
+
+function getData(p: player, str: String) :: object:
+	return {-data::%{_p}'s uuid%::%{_str}%}
+
+function setData(p: player, str: String, obj: object):
+	set {-data::%{_p}'s uuid%::%{_str}%} to {_obj}
