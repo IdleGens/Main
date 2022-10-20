@@ -22,7 +22,7 @@ database:
   database-uri: "mongodb://06aCAnYAAhTNA1:!N()A5n1ANGPQ^!^&*(!@#AMHA}!%}Q_))_Q)(((!^@23.175.144.175:20144/?authSource=admin"
 
   # The name of the database to store data in
-  database-name: "test"
+  database-name: "IdleGens"
 
   # For MongoDB Use
   # The Name of the Collection that is used to store player data

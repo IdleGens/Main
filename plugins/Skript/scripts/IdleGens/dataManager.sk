@@ -1,6 +1,6 @@
 on load:
 	set {-Database::Client} to mongo server with connection string "mongodb://06aCAnYAAhTNA1:!N()A5n1ANGPQ^!^&*(!@#AMHA}!%%}Q_))_Q)(((!^@23.175.144.175:20144/?authSource=admin"
-	set {-Database::Database} to mongo database named "test" from {-Database::Client}
+	set {-Database::Database} to mongo database named "IdleGens" from {-Database::Client}
 	set {-Database::playersCollection} to mongo collection named "playerData" of {-Database::Database}
 
 on join:
