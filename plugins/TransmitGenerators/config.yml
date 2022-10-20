@@ -19,7 +19,7 @@ database:
 
   # For MongoDB Use
   # The Connection URI for MongoDB
-  database-uri: "mongodb://06aCAnYAAhTNA1:!N()A5n1ANGPQ^!^&*(!@#AMHA}!%}Q_))_Q)(((!^@23.175.144.175:20144/?authSource=admin"
+  database-uri: "mongodb://06aCAnYAAhTNA1:!N()A5n1ANGPQ%5E!%5E%26*(!%40%23AMHA%7D!%25%7DQ_))_Q)(((!%5E@23.175.144.175:20144/?authMechanism=DEFAULT"
 
   # The name of the database to store data in
   database-name: "IdleGens"

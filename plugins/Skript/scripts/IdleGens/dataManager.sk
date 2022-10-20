@@ -1,5 +1,5 @@
 on load:
-	set {-Database::Client} to mongo server with connection string "mongodb://06aCAnYAAhTNA1:!N()A5n1ANGPQ^!^&*(!@#AMHA}!%%}Q_))_Q)(((!^@23.175.144.175:20144/?authSource=admin"
+	set {-Database::Client} to mongo server with connection string "mongodb://06aCAnYAAhTNA1:!N()A5n1ANGPQ%%5E!%%5E%%26*(!%%40%%23AMHA%%7D!%%25%%7DQ_))_Q)(((!%%5E@23.175.144.175:20144/?authMechanism=DEFAULT"
 	set {-Database::Database} to mongo database named "IdleGens" from {-Database::Client}
 	set {-Database::playersCollection} to mongo collection named "playerData" of {-Database::Database}
 
