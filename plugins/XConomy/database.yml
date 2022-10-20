@@ -17,11 +17,11 @@ SQLite:
 
 #MySQL settings
 MySQL:
-  host: 23.175.144.172
+  host: 23.175.144.175
   port: 3306
-  user: u56_VH39T3KOq5
-  pass: D^D^UVmJXj=zbO=mdOvEANHJ
-  database: s56_aaa
+  user: u64_bccy9TNuQg
+  pass: S9Bi@S3lRDg!3Wtvcps@cnu.
+  database: s64_main
   #auto add "_", can use %sign% to indicate Server ID (BungeeCord settings)
   table-suffix: 'economy'
   property:

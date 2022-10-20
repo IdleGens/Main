@@ -11,11 +11,11 @@ sqlite:
 mysql:
   # Should MySQL be used?
   use: true
-  host: "23.175.144.172"
+  host: "23.175.144.175"
   port: "3306"
-  user: "u56_VH39T3KOq5"
-  password: "D^D^UVmJXj=zbO=mdOvEANHJ"
-  database: "s56_aaa"
+  user: "u64_bccy9TNuQg"
+  password: "S9Bi@S3lRDg!3Wtvcps@cnu."
+  database: "s64_main"
   # Set additional properties: https://goo.gl/wngtN8
   properties: 
   - "useSSL=false"
