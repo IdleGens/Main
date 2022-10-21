@@ -27,3 +27,6 @@ database:
   # For MongoDB Use
   # The Name of the Collection that is used to store player data
   collection-name: "generatorData"
+
+
+debug: false
