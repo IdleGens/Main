@@ -7,7 +7,7 @@ regions:
     announce-bypass-status: false
     sql:
         use: true
-        dsn: jdbc:mysql://u64_bccy9TNuQg:S9Bi@S3lRDg!3Wtvcps@cnu.@23.175.144.175:3306/s64_main
+        dsn: jdbc:mysql://u64_bccy9TNuQg:S9Bi%40S3lRDg%213Wtvcps%40cnu.@23.175.144.175:3306/s64_main
         username: u64_bccy9TNuQg
         password: S9Bi@S3lRDg!3Wtvcps@cnu.
         table-prefix: 'world-guard'

@@ -8,10 +8,10 @@
 UseMySQL: true
 
 MySQL:
-  IP: 23.175.144.172
+  IP: 23.175.144.175
   DB-Name: s56_aaa
-  Username: u56_VH39T3KOq5
-  Password: D^D^UVmJXj=zbO=mdOvEANHJ
+  Username: u64_bccy9TNuQg
+  Password: S9Bi@S3lRDg!3Wtvcps@cnu.
   Port: 3306
   Properties: 'verifyServerCertificate=false&useSSL=false&useUnicode=true&characterEncoding=utf8'
 
