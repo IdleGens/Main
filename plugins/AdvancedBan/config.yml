@@ -9,7 +9,7 @@ UseMySQL: true
 
 MySQL:
   IP: 23.175.144.175
-  DB-Name: s56_aaa
+  DB-Name: s64_main
   Username: u64_bccy9TNuQg
   Password: S9Bi@S3lRDg!3Wtvcps@cnu.
   Port: 3306
