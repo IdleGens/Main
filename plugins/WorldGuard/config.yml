@@ -7,9 +7,9 @@ regions:
     announce-bypass-status: false
     sql:
         use: true
-        dsn: jdbc:mysql://u56_VH39T3KOq5:D^D^UVmJXj=zbO=mdOvEANHJ@23.175.144.172:3306/s56_aaa
-        username: u56_VH39T3KOq5
-        password: D^D^UVmJXj=zbO=mdOvEANHJ
+        dsn: jdbc:mysql://u64_bccy9TNuQg:S9Bi@S3lRDg!3Wtvcps@cnu.@23.175.144.175:3306/s64_main
+        username: u64_bccy9TNuQg
+        password: S9Bi@S3lRDg!3Wtvcps@cnu.
         table-prefix: 'world-guard'
     use-paper-entity-origin: false
     enable: true
