@@ -1,8 +1,0 @@
-_DEFAULT_:
-  tabprefix: "%vault-prefix% "
-  tagprefix: "%vault-prefix% "
-  customtabname: "%player_displayname%"
-  customtagname: "%player_displayname%" # don't forget to enable unlimited nametag mode to make this one work
-  tabsuffix: " %vault-suffix%"
-  tagsuffix: " %vault-suffix%"
-
